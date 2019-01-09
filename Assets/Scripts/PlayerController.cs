@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
 	[SerializeField, Range(1, 10)] private float jumpSpeed = 5.0f;
 	[SerializeField, Range(1, 10)] private float speed = 5.0f;
 	[SerializeField, Range(1, 10)] private float climbingSpeed = 2.0f;
-	[SerializeField, Range(0, 1)] private float verticalThresholdInteract = 0.3f;
 	private bool hasPressedJump;
 	private bool isAirborne;
 	private Rigidbody2D myRigidbody2D;
