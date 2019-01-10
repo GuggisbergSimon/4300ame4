@@ -25,7 +25,6 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private PlayerState myState;
-
 	public PlayerState MyState
 	{
 		get => myState;
@@ -80,8 +79,7 @@ public class PlayerController : MonoBehaviour
 				}
 				else if (myRigidbody2D.velocity.y > 0 && !Input.GetButton("Jump"))
 				{
-					myRigidbody2D.velocity +=
-						Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+					myRigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 				}
 
 				//adjust horizontal velocity
@@ -130,6 +128,11 @@ public class PlayerController : MonoBehaviour
 			}
 		}
 	}
+
+    public void Die()
+    {
+        Debug.Log("Lol you are suck");
+    }
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
