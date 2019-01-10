@@ -136,4 +136,9 @@ public class PlayerController : MonoBehaviour
 		//TODO remove the ability to wall jump
 		isAirborne = false;
 	}
+
+	public void Die()
+	{
+		
+	}
 }
