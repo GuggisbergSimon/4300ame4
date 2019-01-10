@@ -12,12 +12,12 @@ public class Arrows : MonoBehaviour
 	private Rigidbody2D myRigidBody;
 	private bool isShot = false;
 	private float timer = 0.0f;
-	private Collider2D mycollider;
+	private Collider2D myCollider;
 
 	private void Start()
 	{
 		myRigidBody = GetComponent<Rigidbody2D>();
-		mycollider = GetComponent<Collider2D>();
+		myCollider = GetComponent<Collider2D>();
 		Invoke("Shoot", timeBeforeShot);
 	}
 
@@ -58,11 +58,15 @@ public class Arrows : MonoBehaviour
 		}
 		else if (other.CompareTag("Ground"))
 		{
-			mycollider.enabled = false;
+			myCollider.enabled = false;
 			myRigidBody.bodyType = RigidbodyType2D.Static;
 		}
 		else if (other.CompareTag("Shelter"))
 		{
+			StartCoroutine(other.GetComponent<Shelter>().Burn());
+			myCollider.enabled = false;
+			myRigidBody.bodyType = RigidbodyType2D.Static;
+			transform.SetParent(other.gameObject.transform);
 		}
 	}
 }
