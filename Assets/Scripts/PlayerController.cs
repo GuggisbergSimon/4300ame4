@@ -147,11 +147,6 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-    public void Die()
-    {
-        Debug.Log("Lol you are suck");
-    }
-
 	private void OnCollisionEnter2D(Collision2D other)
 	{
 		if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Shelter"))
