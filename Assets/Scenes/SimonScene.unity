@@ -642,6 +642,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2049619309522147062, guid: fe1256e6791fb4c459abc324f53b4b1c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049619309522147062, guid: fe1256e6791fb4c459abc324f53b4b1c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2049619309522147062, guid: fe1256e6791fb4c459abc324f53b4b1c,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe1256e6791fb4c459abc324f53b4b1c, type: 3}
 --- !u!1001 &1220702116320529389
@@ -847,6 +862,16 @@ PrefabInstance:
     - target: {fileID: 8622634050276281352, guid: a03d82ccaeb655b4ba005445fa630ecc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622634050276281359, guid: a03d82ccaeb655b4ba005445fa630ecc,
+        type: 3}
+      propertyPath: speedRotationAim
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8622634050276281359, guid: a03d82ccaeb655b4ba005445fa630ecc,
+        type: 3}
+      propertyPath: speedAim
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

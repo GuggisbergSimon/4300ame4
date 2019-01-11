@@ -7,6 +7,7 @@ public class Arrows : MonoBehaviour
 {
 	[SerializeField] private float timeBeforeShot = 2.0f;
 	[SerializeField] private float speedAim = 2.0f;
+	[SerializeField] private float speedRotationAim = 0.0f;
 	[SerializeField] private float speedShot = 10.0f;
 	[SerializeField] private GameObject aim = null;
 
@@ -39,12 +40,20 @@ public class Arrows : MonoBehaviour
 		if (!isShot)
 		{
 			timer += Time.deltaTime;
+			
+			//handle the
 			transform.position += Mathf.Sign((GameManager.Instance.Player.transform.position - transform.position).x) *
 			                      Vector3.right * speedAim * Time.deltaTime;
+			
+			//handle the rotation when aiming
+			Vector2 diff = transform.position - GameManager.Instance.Player.transform.position;
+			Quaternion targetRot = Quaternion.Euler(0f, 0f, Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg - 90);
+			transform.rotation =
+				Quaternion.RotateTowards(transform.rotation, targetRot, speedRotationAim * Time.deltaTime);
 		}
 
-		RaycastHit2D hit = Physics2D.Raycast(transform.position - Vector3.up * mySpriteRenderer.sprite.rect.height / 2,
-			Vector3.down);
+		RaycastHit2D hit = Physics2D.Raycast(transform.position - transform.up.normalized * mySpriteRenderer.sprite.rect.height / 2,
+			-transform.up);
 		aim.transform.position = hit.point;
 	}
 
@@ -52,7 +61,7 @@ public class Arrows : MonoBehaviour
 	{
 		isShot = true;
 		myRigidBody.gravityScale = 1.0f;
-		myRigidBody.velocity = Vector2.down * speedShot;
+		myRigidBody.velocity = -transform.up * speedShot;
 		//to use if we want to have arrows aiming correctly at player, which I found a bit unfair, unless we set a rotationspeed when aiming
 		//Vector2 differenceVector = GameManager.Instance.Player.transform.position - transform.position;
 		//myRigidBody.velocity = differenceVector.normalized * speedShot;
