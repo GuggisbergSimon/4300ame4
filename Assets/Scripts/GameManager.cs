@@ -5,7 +5,12 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager Instance { get; private set; }
 	private PlayerController player;
-	public PlayerController Player => player;
+
+	public PlayerController Player
+	{
+		get => player;
+		set => player = value;
+	}
 
 	private void OnEnable()
 	{

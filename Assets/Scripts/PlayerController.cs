@@ -9,15 +9,17 @@ public class PlayerController : MonoBehaviour
 	[SerializeField, Range(1, 10)] private float jumpSpeed = 5.0f;
 	[SerializeField, Range(1, 10)] private float speed = 5.0f;
 	[SerializeField, Range(1, 10)] private float climbingSpeed = 2.0f;
-	[SerializeField] private float timeBeforeRespawn=1.0f;
-	[SerializeField] private float timeInvincibility=1.5f;
+	[SerializeField] private float timeBeforeRespawn = 1.0f;
+	[SerializeField] private float timeInvincibility = 1.5f;
+	[SerializeField] private GameObject playerPrefab = null;
 	private bool hasPressedJump;
 	private bool isAirborne;
 	private Rigidbody2D myRigidbody2D;
+	private Collider2D myCollider;
 	private float horizontalInput;
 	private float verticalInput;
 	private Vector2 respawnPosition;
-	private int initialNumberChildren;
+	private int initialNumberChildren=1;
 
 	public enum PlayerState
 	{
@@ -54,9 +56,10 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	private void Start()
+	private void Awake()
 	{
 		myRigidbody2D = GetComponent<Rigidbody2D>();
+		myCollider = GetComponent<Collider2D>();
 		respawnPosition = transform.position;
 		initialNumberChildren = transform.childCount;
 	}
@@ -70,7 +73,7 @@ public class PlayerController : MonoBehaviour
 				myRigidbody2D.velocity = Vector2.up * verticalInput * climbingSpeed;
 				break;
 			}
-			
+
 			case PlayerState.Dying:
 			{
 				break;
@@ -155,6 +158,19 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
+	public void Setup(int initialNumberChildren)
+	{
+		myRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+		myCollider.enabled = true;
+		myState = PlayerState.Invincibility;
+		GameManager.Instance.Player = this;
+		this.initialNumberChildren = initialNumberChildren;
+		for (int i = initialNumberChildren; i < transform.childCount; i++)
+		{
+			Destroy(transform.GetChild(i).gameObject);
+		}
+	}
+
 	public IEnumerator Die()
 	{
 		if (myState != PlayerState.Dying && myState != PlayerState.Invincibility)
@@ -163,18 +179,17 @@ public class PlayerController : MonoBehaviour
 			myState = PlayerState.Dying;
             //GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
 			myRigidbody2D.velocity = Vector2.zero;
+			myRigidbody2D.bodyType = RigidbodyType2D.Static;
+			myCollider.enabled = false;
 			yield return new WaitForSeconds(timeBeforeRespawn);
-			
-			
-			//todo make sprite blink while timeInvincibility is used
-			for (int i = initialNumberChildren; i < transform.childCount; i++)
-			{
-				Destroy(transform.GetChild(i).gameObject);
-			}
-			transform.position = respawnPosition;
-			myState = PlayerState.Invincibility;
+
+			//todo make sprite blink while timeInvincibility is used (in update or fixedupdate probably would be best)
+			this.tag = "Untagged";
+			GameObject newObject = Instantiate(playerPrefab, respawnPosition, transform.rotation, transform.parent);
+			PlayerController newPlayer = newObject.GetComponent<PlayerController>();
+			newPlayer.Setup(initialNumberChildren);
 			yield return new WaitForSeconds(timeInvincibility);
-			myState = PlayerState.Idle;
+			newPlayer.myState = PlayerState.Idle;
 		}
 	}
 }
