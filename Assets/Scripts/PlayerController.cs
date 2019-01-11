@@ -177,6 +177,7 @@ public class PlayerController : MonoBehaviour
 		{
 			//todo add way to see ingame that player is ded
 			myState = PlayerState.Dying;
+            //GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
 			myRigidbody2D.velocity = Vector2.zero;
 			myRigidbody2D.bodyType = RigidbodyType2D.Static;
 			myCollider.enabled = false;
