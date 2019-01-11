@@ -8,7 +8,7 @@ public class Arrows : MonoBehaviour
 	[SerializeField] private float timeBeforeShot = 2.0f;
 	[SerializeField] private float speedAim = 2.0f;
 	[SerializeField] private float speedShot = 10.0f;
-	[SerializeField] private GameObject aim=null;
+	[SerializeField] private GameObject aim = null;
 
 	private SpriteRenderer spriteAimRenderer;
 	private SpriteRenderer mySpriteRenderer;
@@ -40,11 +40,11 @@ public class Arrows : MonoBehaviour
 		{
 			timer += Time.deltaTime;
 			transform.position += Mathf.Sign((GameManager.Instance.Player.transform.position - transform.position).x) *
-								  Vector3.right * speedAim * Time.deltaTime;
+			                      Vector3.right * speedAim * Time.deltaTime;
 		}
 
-		//Debug.Log(mySpriteRenderer.sprite.rect.height/2);
-		RaycastHit2D hit = Physics2D.Raycast(transform.position - Vector3.up * mySpriteRenderer.sprite.rect.height/2, Vector3.down);
+		RaycastHit2D hit = Physics2D.Raycast(transform.position - Vector3.up * mySpriteRenderer.sprite.rect.height / 2,
+			Vector3.down);
 		aim.transform.position = hit.point;
 	}
 
