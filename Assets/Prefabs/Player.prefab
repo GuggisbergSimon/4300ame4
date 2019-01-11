@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6721028352712480029}
   - component: {fileID: 1049733434148745692}
   m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,6 @@ MonoBehaviour:
   jumpSpeed: 5
   speed: 5
   climbingSpeed: 2
-  verticalThresholdInteract: 0.3
 --- !u!50 &6721028352712480029
 Rigidbody2D:
   serializedVersion: 4
