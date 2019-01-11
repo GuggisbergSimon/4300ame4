@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &7461870656890211402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9101027151154006345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa18850f81508c4f8bd31850bbe7b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spritesDestroyed:
+  - {fileID: 21300000, guid: 28dfceace09af1f4595903c423f6f6b8, type: 3}
+  - {fileID: 21300000, guid: f2ad70f2a90e3454bb0e4cb542060b65, type: 3}
+  - {fileID: 21300000, guid: 4c20a33a32d801649a037cf243c40325, type: 3}
+  - {fileID: 21300000, guid: dce3f8db02fd7d8488b8e7022b5e8188, type: 3}
+  destroyedPartPrefab: {fileID: 5723879312945162309, guid: 8776750a0f6797048a5b26f89e4cc367,
+    type: 3}
+--- !u!1001 &8320593919033781405
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 951921898196886996, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_Name
+      value: BreakableBridge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956270064649472661, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956270064649472661, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240314094676694414, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240314094676694414, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240314094676694414, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240314094676694414, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240314094676694414, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240314094676694414, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240314094676694414, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240314094676694414, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240314094676694414, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240314094676694414, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240314094676694414, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655849697069561098, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402176603941459745, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_Name
+      value: sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808202627069798393, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 11e92df1bdeae404dac644c94adb8028,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6444c1baccff7546b06cde23648fd0b, type: 3}
+--- !u!1 &9101027151154006345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 951921898196886996, guid: b6444c1baccff7546b06cde23648fd0b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8320593919033781405}
+  m_PrefabAsset: {fileID: 0}
