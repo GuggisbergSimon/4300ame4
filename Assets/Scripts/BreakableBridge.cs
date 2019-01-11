@@ -19,7 +19,7 @@ public class BreakableBridge : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		if (!isBroken && !other.gameObject.CompareTag("Elephant"))
+		if (!isBroken && other.gameObject.CompareTag("Elephant"))
 		{
 			Break();
 		}
@@ -50,7 +50,6 @@ public class BreakableBridge : MonoBehaviour
 			SpriteRenderer spriteDestroyedRenderer = destroyedPart.GetComponentInChildren<SpriteRenderer>();
 			spriteDestroyedRenderer.sprite = sprite;
 			spriteDestroyedRenderer.gameObject.transform.position = transform.position;
-			Debug.Log(spriteDestroyedRenderer.gameObject.transform.localPosition);
 			//todo add velocity random to destroyedpart ?
 		}
 	}

@@ -9,11 +9,15 @@ public class PlayerController : MonoBehaviour
 	[SerializeField, Range(1, 10)] private float jumpSpeed = 5.0f;
 	[SerializeField, Range(1, 10)] private float speed = 5.0f;
 	[SerializeField, Range(1, 10)] private float climbingSpeed = 2.0f;
+	[SerializeField] private float timeBeforeRespawn=1.0f;
+	[SerializeField] private float timeInvincibility=1.5f;
 	private bool hasPressedJump;
 	private bool isAirborne;
 	private Rigidbody2D myRigidbody2D;
 	private float horizontalInput;
 	private float verticalInput;
+	private Vector2 respawnPosition;
+	private int initialNumberChildren;
 
 	public enum PlayerState
 	{
@@ -21,7 +25,9 @@ public class PlayerController : MonoBehaviour
 		ClimbingLadder,
 		Walking,
 		Jumping,
-		Falling
+		Falling,
+		Dying,
+		Invincibility
 	}
 
 	private PlayerState myState;
@@ -52,6 +58,8 @@ public class PlayerController : MonoBehaviour
 	private void Start()
 	{
 		myRigidbody2D = GetComponent<Rigidbody2D>();
+		respawnPosition = transform.position;
+		initialNumberChildren = transform.childCount;
 	}
 
 	private void FixedUpdate()
@@ -61,6 +69,11 @@ public class PlayerController : MonoBehaviour
 			case PlayerState.ClimbingLadder:
 			{
 				myRigidbody2D.velocity = Vector2.up * verticalInput * climbingSpeed;
+				break;
+			}
+			
+			case PlayerState.Dying:
+			{
 				break;
 			}
 
@@ -108,6 +121,11 @@ public class PlayerController : MonoBehaviour
 				break;
 			}
 
+			case PlayerState.Dying:
+			{
+				break;
+			}
+
 			default:
 			{
 				//updates horizontal input
@@ -133,12 +151,31 @@ public class PlayerController : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D other)
 	{
-		//TODO remove the ability to wall jump
-		isAirborne = false;
+		if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Shelter"))
+		{
+			isAirborne = false;
+		}
 	}
 
-	public void Die()
+	public IEnumerator Die()
 	{
-		
+		if (myState != PlayerState.Dying && myState != PlayerState.Invincibility)
+		{
+			//todo add way to see ingame that player is ded
+			myState = PlayerState.Dying;
+			myRigidbody2D.velocity = Vector2.zero;
+			yield return new WaitForSeconds(timeBeforeRespawn);
+			
+			
+			//todo make sprite blink while timeInvincibility is used
+			for (int i = initialNumberChildren; i < transform.childCount; i++)
+			{
+				Destroy(transform.GetChild(i).gameObject);
+			}
+			transform.position = respawnPosition;
+			myState = PlayerState.Invincibility;
+			yield return new WaitForSeconds(timeInvincibility);
+			myState = PlayerState.Idle;
+		}
 	}
 }

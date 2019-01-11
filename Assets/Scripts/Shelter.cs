@@ -28,7 +28,7 @@ public class Shelter : MonoBehaviour
 			Destroy(transform.GetChild(i).gameObject);
 		}
 		yield return new WaitForSeconds(timeNoRebuild);
-		//todo make sprite blink here, while timetorebuild is used
+		//todo make sprite blink while timetorebuild is used
 		yield return new WaitForSeconds(timeRebuild);
 		Build();
 	}

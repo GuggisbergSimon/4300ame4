@@ -63,8 +63,8 @@ public class Arrows : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			GameManager.Instance.Player.Die();
-			Destroy(this.gameObject);
+			StartCoroutine(GameManager.Instance.Player.Die());
+			CollisionSolidObject(other);
 		}
 		else if (other.CompareTag("Arrow"))
 		{
