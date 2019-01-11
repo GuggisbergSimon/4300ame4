@@ -23,7 +23,7 @@ public class Elephant : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameManager.Instance.Player.Die();
+            StartCoroutine( GameManager.Instance.Player.Die());
         }
     }
 }
