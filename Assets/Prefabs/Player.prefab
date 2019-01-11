@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6721028352712480029}
   - component: {fileID: 1049733434148745692}
   m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,7 +51,9 @@ MonoBehaviour:
   jumpSpeed: 5
   speed: 5
   climbingSpeed: 2
-  verticalThresholdInteract: 0.3
+  timeBeforeRespawn: 1
+  timeInvincibility: 1.5
+  playerPrefab: {fileID: 2549784006411293197}
 --- !u!50 &6721028352712480029
 Rigidbody2D:
   serializedVersion: 4
@@ -72,7 +74,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1049733434148745692
 BoxCollider2D:
   m_ObjectHideFlags: 0
