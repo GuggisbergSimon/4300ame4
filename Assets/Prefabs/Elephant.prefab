@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 555068}
   - component: {fileID: 555069}
   - component: {fileID: 540639957}
+  - component: {fileID: 1486915839}
   m_Layer: 0
   m_Name: leg_2
   m_TagString: Elephant
@@ -70,6 +71,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6844fb184a2104cba50a2a606f304c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1486915839
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555067}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &96857882
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +164,7 @@ GameObject:
   - component: {fileID: 343550136}
   - component: {fileID: 343550137}
   - component: {fileID: 1119680898}
+  - component: {fileID: 1092453823}
   m_Layer: 0
   m_Name: leg_1
   m_TagString: Elephant
@@ -201,6 +224,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6844fb184a2104cba50a2a606f304c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1092453823
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343550135}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &352751355
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,6 +318,7 @@ GameObject:
   - component: {fileID: 1126951659}
   - component: {fileID: 1126951660}
   - component: {fileID: 127294101}
+  - component: {fileID: 1798195211}
   m_Layer: 0
   m_Name: leg_3
   m_TagString: Elephant
@@ -333,6 +378,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6844fb184a2104cba50a2a606f304c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1798195211
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126951658}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1175678169
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,6 +410,7 @@ GameObject:
   - component: {fileID: 1175678170}
   - component: {fileID: 1175678171}
   - component: {fileID: 320876724}
+  - component: {fileID: 1873174483}
   m_Layer: 0
   m_Name: leg_4
   m_TagString: Elephant
@@ -403,6 +470,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f6844fb184a2104cba50a2a606f304c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1873174483
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175678169}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1208822447
 GameObject:
   m_ObjectHideFlags: 0
