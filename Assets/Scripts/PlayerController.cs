@@ -160,12 +160,12 @@ public class PlayerController : MonoBehaviour
 
 	public void Setup(int initialNumberChildren)
 	{
-		myRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-		myCollider.enabled = true;
-	    this.tag = "Player";
-        myState = PlayerState.Invincibility;
+		//myRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+		//myCollider.enabled = true;
+		myState = PlayerState.Invincibility;
+		GameManager.Instance.Player = this;
+		this.tag = "Player";
         GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
-        GameManager.Instance.Player = this;
 		this.initialNumberChildren = initialNumberChildren;
 		for (int i = initialNumberChildren; i < transform.childCount; i++)
 		{
@@ -179,10 +179,11 @@ public class PlayerController : MonoBehaviour
 		{
 			//todo add way to see ingame that player is ded
 			myState = PlayerState.Dying;
+            //GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
+			//myRigidbody2D.velocity = Vector2.zero;
+			//myRigidbody2D.bodyType = RigidbodyType2D.Static;
+			//myCollider.enabled = false;
             GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
-			myRigidbody2D.velocity = Vector2.zero;
-			myRigidbody2D.bodyType = RigidbodyType2D.Static;
-			myCollider.enabled = false;
 			yield return new WaitForSeconds(timeBeforeRespawn);
 
 			//todo make sprite blink while timeInvincibility is used (in update or fixedupdate probably would be best)
