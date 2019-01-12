@@ -123,9 +123,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881d4384deb20b7459c578b57752e9b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeBurning: 0.5
-  timeNoRebuild: 0.52
-  timeRebuild: 3
+  timeBeforeBurning: 3
+  timeBurning: 1
+  timeBetweenNewFlame: 0.1
+  timeNoRebuild: 1
+  timeRebuild: 4
+  firePrefab: {fileID: 1068940007430539507, guid: 765fc583511b5a04ebaee7fa9d8f80da,
+    type: 3}
+  minNumberFire: 1
+  maxNumberFire: 5
 --- !u!61 &2653125817897109691
 BoxCollider2D:
   m_ObjectHideFlags: 0
