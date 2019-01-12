@@ -21,8 +21,6 @@ public class ElephantLeg : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Meur putain");
-
             GameManager.Instance.Player.Die();
         }
     }

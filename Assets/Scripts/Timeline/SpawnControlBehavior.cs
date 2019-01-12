@@ -29,12 +29,12 @@ public class SpawnControlBehavior : PlayableBehaviour
             }
             case SpawnObject.ELEPHANT:
             {
-                timelineManager.SpawnElephant();
+                //timelineManager.SpawnElephant();
                 break;
             }
             case SpawnObject.HORSE:
             {
-                timelineManager.SpawnHorse();
+                //timelineManager.SpawnHorse();
                 break;
             }
         }
