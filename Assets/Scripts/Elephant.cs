@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Elephant : MonoBehaviour
 {
-    [SerializeField] private bool shake;
+    [SerializeField] private float shakeAmplitude;
+    [SerializeField] private float shakeFrequency;
+    [SerializeField] private float shakeTime;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +20,12 @@ public class Elephant : MonoBehaviour
         
     }
 
-
-    private void OnTriggerEnter2D(Collider2D other)
+    public IEnumerator Shake()
     {
-        if (other.CompareTag("Player"))
-        {
-            StartCoroutine( GameManager.Instance.Player.Die());
-        }
+        CameraManager.Instance.Noise(shakeAmplitude, shakeFrequency);
+        yield return new WaitForSeconds(shakeTime);
+        CameraManager.Instance.Noise(0, 0);
+
     }
+
 }

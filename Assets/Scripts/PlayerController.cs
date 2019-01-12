@@ -162,8 +162,10 @@ public class PlayerController : MonoBehaviour
 	{
 		myRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
 		myCollider.enabled = true;
-		myState = PlayerState.Invincibility;
-		GameManager.Instance.Player = this;
+	    this.tag = "Player";
+        myState = PlayerState.Invincibility;
+        GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        GameManager.Instance.Player = this;
 		this.initialNumberChildren = initialNumberChildren;
 		for (int i = initialNumberChildren; i < transform.childCount; i++)
 		{
@@ -177,7 +179,7 @@ public class PlayerController : MonoBehaviour
 		{
 			//todo add way to see ingame that player is ded
 			myState = PlayerState.Dying;
-            //GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
+            GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
 			myRigidbody2D.velocity = Vector2.zero;
 			myRigidbody2D.bodyType = RigidbodyType2D.Static;
 			myCollider.enabled = false;
@@ -190,6 +192,8 @@ public class PlayerController : MonoBehaviour
 			newPlayer.Setup(initialNumberChildren);
 			yield return new WaitForSeconds(timeInvincibility);
 			newPlayer.myState = PlayerState.Idle;
-		}
-	}
+		    newPlayer.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+
+        }
+    }
 }
