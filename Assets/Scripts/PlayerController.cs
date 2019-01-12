@@ -176,6 +176,7 @@ public class PlayerController : MonoBehaviour
 		if (myState != PlayerState.Dying && myState != PlayerState.Invincibility)
 		{
 			//todo add way to see ingame that player is ded
+			//todo make the corpse of the player ragdoll but not interacting with the player
 			myState = PlayerState.Dying;
             //GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
 			myRigidbody2D.velocity = Vector2.zero;
