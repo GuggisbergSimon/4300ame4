@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 555069}
   m_Layer: 0
   m_Name: leg_2
-  m_TagString: Untagged
+  m_TagString: Elephant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 343550137}
   m_Layer: 0
   m_Name: leg_1
-  m_TagString: Untagged
+  m_TagString: Elephant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 1126951660}
   m_Layer: 0
   m_Name: leg_3
-  m_TagString: Untagged
+  m_TagString: Elephant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 1175678171}
   m_Layer: 0
   m_Name: leg_4
-  m_TagString: Untagged
+  m_TagString: Elephant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
