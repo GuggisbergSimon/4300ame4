@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NoiseProfile: {fileID: 11400000, guid: 00000000000000000000000000000000, type: 0}
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
   m_AmplitudeGain: 0
   m_FrequencyGain: 0
   mNoiseOffsets: {x: 0, y: 0, z: 0}
@@ -353,6 +353,11 @@ PrefabInstance:
       propertyPath: m_UsedByEffector
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1806877366214974452, guid: d88ff34ed4a2c9c42a9e4be224345787,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d88ff34ed4a2c9c42a9e4be224345787, type: 3}
 --- !u!1 &575873377
@@ -387,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 8622634050276281356, guid: a03d82ccaeb655b4ba005445fa630ecc,
     type: 3}
-  elephantPrefab: {fileID: 2882570802954597105, guid: 0b444ea1e6144d04381d0fbeee067769,
+  elephantPrefab: {fileID: 3140956436190512667, guid: a89965f5350936d4ebc54b92c18855f7,
     type: 3}
   horsePrefab: {fileID: 6271331953336578785, guid: 08afa166c8ddc9d498dbf7e53824c827,
     type: 3}
@@ -1041,7 +1046,7 @@ Transform:
   m_GameObject: {fileID: 1592738022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -13, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3.075, y: 1, z: 1}
   m_Children:
   - {fileID: 1119668733}
   m_Father: {fileID: 0}
@@ -1058,6 +1063,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BreakableBridge (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9101027151154006345, guid: dcb195432cbbd494ba35981ea99aa5b2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2729951644431808787, guid: dcb195432cbbd494ba35981ea99aa5b2,
         type: 3}
