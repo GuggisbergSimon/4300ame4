@@ -70,7 +70,7 @@ public class BasicWater : MonoBehaviour
 	{
 		if (other.CompareTag("Player") && Contains(other.bounds))
 		{
-			StartCoroutine(GameManager.Instance.Player.Die());
+			GameManager.Instance.Player.Die();
 		}
 	}
 }

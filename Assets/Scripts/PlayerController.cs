@@ -12,14 +12,16 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float timeBeforeRespawn = 1.0f;
 	[SerializeField] private float timeInvincibility = 1.5f;
 	[SerializeField] private GameObject playerPrefab = null;
+	[SerializeField] private int layerPlayer = 0;
+	[SerializeField] private int layerPlayerDead = 0;
 	private bool hasPressedJump;
 	private bool isAirborne;
 	private Rigidbody2D myRigidbody2D;
-	private Collider2D myCollider;
+	private SpriteRenderer mySpriteRenderer;
 	private float horizontalInput;
 	private float verticalInput;
 	private Vector2 respawnPosition;
-	private int initialNumberChildren=1;
+	private int initialNumberChildren = 1;
 
 	public enum PlayerState
 	{
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
 	}
 
 	private PlayerState myState;
+
 	public PlayerState MyState
 	{
 		get => myState;
@@ -59,7 +62,7 @@ public class PlayerController : MonoBehaviour
 	private void Awake()
 	{
 		myRigidbody2D = GetComponent<Rigidbody2D>();
-		myCollider = GetComponent<Collider2D>();
+		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		respawnPosition = transform.position;
 		initialNumberChildren = transform.childCount;
 	}
@@ -95,7 +98,8 @@ public class PlayerController : MonoBehaviour
 				}
 				else if (myRigidbody2D.velocity.y > 0 && !Input.GetButton("Jump"))
 				{
-					myRigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+					myRigidbody2D.velocity +=
+						Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 				}
 
 				//adjust horizontal velocity
@@ -160,12 +164,11 @@ public class PlayerController : MonoBehaviour
 
 	public void Setup(int initialNumberChildren)
 	{
-		//myRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-		//myCollider.enabled = true;
 		myState = PlayerState.Invincibility;
+		mySpriteRenderer.color = Color.gray;
 		GameManager.Instance.Player = this;
 		this.tag = "Player";
-        GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+		this.gameObject.layer = layerPlayer;
 		this.initialNumberChildren = initialNumberChildren;
 		for (int i = initialNumberChildren; i < transform.childCount; i++)
 		{
@@ -173,28 +176,28 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public IEnumerator Die()
+	public void Die()
+	{
+		StartCoroutine(Dying());
+	}
+	
+	public IEnumerator Dying()
 	{
 		if (myState != PlayerState.Dying && myState != PlayerState.Invincibility)
 		{
-			//todo add way to see ingame that player is ded
 			myState = PlayerState.Dying;
-            //GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
-			//myRigidbody2D.velocity = Vector2.zero;
-			//myRigidbody2D.bodyType = RigidbodyType2D.Static;
-			//myCollider.enabled = false;
-            GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
+			mySpriteRenderer.color = Color.red;
 			yield return new WaitForSeconds(timeBeforeRespawn);
-
-			//todo make sprite blink while timeInvincibility is used (in update or fixedupdate probably would be best)
+			
 			this.tag = "Untagged";
+			this.gameObject.layer = layerPlayerDead;
 			GameObject newObject = Instantiate(playerPrefab, respawnPosition, transform.rotation, transform.parent);
 			PlayerController newPlayer = newObject.GetComponent<PlayerController>();
 			newPlayer.Setup(initialNumberChildren);
 			yield return new WaitForSeconds(timeInvincibility);
+			
+			newPlayer.GetComponentInChildren<SpriteRenderer>().color = Color.white;
 			newPlayer.myState = PlayerState.Idle;
-		    newPlayer.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
-
-        }
-    }
+		}
+	}
 }
