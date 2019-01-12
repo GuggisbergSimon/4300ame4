@@ -6,15 +6,57 @@ public class BasicWater : MonoBehaviour
 {
 	[SerializeField] private float width = 2.0f;
 	[SerializeField] private float maxHeight = 2.0f;
-	private Collider2D myCollider;
-
+	[SerializeField] private GameObject sprite = null;
+	private BoxCollider2D myCollider;
+	private bool isRaising = false;
+	private float finalHeight;
+	private float finalTime;
+	
 	private void Start()
 	{
-		myCollider = GetComponent<Collider2D>();
+		myCollider = GetComponentInChildren<BoxCollider2D>();
+		SetHeight(0.0f);
+		SetWidth(width);
 	}
 
-	public void RaiseHeight(float height, float time)
+	public IEnumerator RaiseHeight(float height, float time)
 	{
+		if (!isRaising)
+		{
+			if (height > maxHeight)
+			{
+				height = maxHeight;
+			}
+
+			float timer = 0.0f;
+			while (timer < time)
+			{
+				yield return new WaitForEndOfFrame();
+				timer += Time.deltaTime;
+				SetHeight(timer * height / time);
+			}
+
+			SetHeight(height);
+		}
+		else
+		{
+			yield return null;
+		}
+	}
+
+	private void SetHeight(float height)
+	{
+		
+		sprite.transform.localScale = Vector2.right * sprite.transform.localScale + Vector2.up * height;
+		sprite.transform.localPosition = Vector2.right * sprite.transform.localPosition + Vector2.up * height / 2;
+		myCollider.size = Vector2.right * myCollider.size + Vector2.up * height;
+		myCollider.gameObject.transform.localPosition = Vector2.right * myCollider.transform.localPosition + Vector2.up * height / 2;
+	}
+
+	private void SetWidth(float width)
+	{
+		sprite.transform.localScale = Vector2.right * width + Vector2.up * sprite.transform.localScale;
+		myCollider.size = Vector2.right * width + Vector2.up * myCollider.size;
 	}
 
 	private bool Contains(Bounds bounds)
