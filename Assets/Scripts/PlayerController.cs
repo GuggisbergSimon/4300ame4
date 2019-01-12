@@ -188,14 +188,14 @@ public class PlayerController : MonoBehaviour
 			myState = PlayerState.Dying;
 			mySpriteRenderer.color = Color.red;
 			yield return new WaitForSeconds(timeBeforeRespawn);
-
-			//todo make sprite blink while timeInvincibility is used (in update or fixedupdate probably would be best)
+			
 			this.tag = "Untagged";
 			this.gameObject.layer = layerPlayerDead;
 			GameObject newObject = Instantiate(playerPrefab, respawnPosition, transform.rotation, transform.parent);
 			PlayerController newPlayer = newObject.GetComponent<PlayerController>();
 			newPlayer.Setup(initialNumberChildren);
 			yield return new WaitForSeconds(timeInvincibility);
+			
 			newPlayer.GetComponentInChildren<SpriteRenderer>().color = Color.white;
 			newPlayer.myState = PlayerState.Idle;
 		}
