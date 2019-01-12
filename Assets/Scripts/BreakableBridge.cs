@@ -7,6 +7,7 @@ public class BreakableBridge : MonoBehaviour
 {
 	[SerializeField] private Sprite[] spritesDestroyed = null;
 	[SerializeField] private GameObject destroyedPartPrefab = null;
+	[SerializeField] private GameObject cubeShadowCasterPrefab;
 	[SerializeField] private int layerDestroyedPart = 0;
 	private Collider2D myCollider;
 	private SpriteRenderer mySpriteRenderer;
@@ -29,8 +30,11 @@ public class BreakableBridge : MonoBehaviour
 	private void Break()
 	{
 		isBroken = true;
-		myCollider.enabled = false;
-		mySpriteRenderer.enabled = false;
+		Destroy(myCollider);
+		for (int i = 0; i < transform.childCount; i++)
+		{
+			Destroy(transform.GetChild(i).gameObject);
+		}
 		foreach (var sprite in spritesDestroyed)
 		{
 			Vector4 cropping = DataUtility.GetPadding(sprite);
@@ -44,14 +48,22 @@ public class BreakableBridge : MonoBehaviour
 			                        (sprite.rect.height/2 -
 			                         ((cropping.y > cropping.w ? cropping.y : cropping.w) + heightCropped / 2));
 			Vector2 initPos = (Vector2) transform.position + centerCropped / sprite.pixelsPerUnit;
+			
 			GameObject destroyedPart = Instantiate(destroyedPartPrefab, initPos, transform.rotation, transform);
 			destroyedPart.layer = layerDestroyedPart;
+			
 			BoxCollider2D colliderDestroyer = destroyedPart.GetComponent<BoxCollider2D>();
 			colliderDestroyer.size = Vector2.right * widthCropped / sprite.pixelsPerUnit +
 			                         Vector2.up * heightCropped / sprite.pixelsPerUnit;
+			
 			SpriteRenderer spriteDestroyedRenderer = destroyedPart.GetComponentInChildren<SpriteRenderer>();
 			spriteDestroyedRenderer.sprite = sprite;
 			spriteDestroyedRenderer.gameObject.transform.position = transform.position;
+
+			GameObject cubeShadowCaster = Instantiate(cubeShadowCasterPrefab, destroyedPart.transform);
+			cubeShadowCaster.transform.localScale = Vector3.right * widthCropped / sprite.pixelsPerUnit +
+			                                        Vector3.up * heightCropped / sprite.pixelsPerUnit +
+			                                        Vector3.forward * cubeShadowCaster.transform.localScale.z;
 			//todo add velocity random to destroyedpart ?
 		}
 	}
