@@ -12,6 +12,7 @@ public class Shelter : MonoBehaviour
 	[SerializeField] private GameObject firePrefab = null;
 	[SerializeField] private int minNumberFire = 1;
 	[SerializeField] private int maxNumberFire = 5;
+	[SerializeField] private Color RebuildingColor=Color.gray;
 	private SpriteRenderer mySpriteRenderer;
 	private Collider2D myCollider;
 	private int initialNumberChildren;
@@ -43,12 +44,10 @@ public class Shelter : MonoBehaviour
 
 		yield return new WaitForSeconds(timeBurning);
 		myCollider.enabled = false;
-		if (initialNumberChildren > 0)
+
+		for (int i = 0; i < initialNumberChildren; i++)
 		{
-			for (int i = 0; i < initialNumberChildren; i++)
-			{
-				transform.GetChild(i).gameObject.SetActive(false);
-			}
+			transform.GetChild(i).gameObject.SetActive(false);
 		}
 
 		for (int i = initialNumberChildren; i < transform.childCount; i++)
@@ -57,9 +56,8 @@ public class Shelter : MonoBehaviour
 		}
 
 		yield return new WaitForSeconds(timeNoRebuild);
-		mySpriteRenderer.enabled = true;
-		mySpriteRenderer.color = Color.gray;
-		//todo make sprite blink while timetorebuild is used
+		mySpriteRenderer.gameObject.SetActive(true);
+		mySpriteRenderer.color = RebuildingColor;
 		yield return new WaitForSeconds(timeRebuild);
 		Build();
 	}
@@ -69,12 +67,9 @@ public class Shelter : MonoBehaviour
 		myCollider.enabled = true;
 		mySpriteRenderer.enabled = true;
 		mySpriteRenderer.color = Color.white;
-		if (initialNumberChildren > 0)
+		for (int i = 0; i < initialNumberChildren; i++)
 		{
-			for (int i = 0; i < initialNumberChildren; i++)
-			{
-				transform.GetChild(i).gameObject.SetActive(true);
-			}
+			transform.GetChild(i).gameObject.SetActive(true);
 		}
 	}
 }

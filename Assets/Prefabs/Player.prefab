@@ -56,6 +56,9 @@ MonoBehaviour:
   playerPrefab: {fileID: 2549784006411293197}
   layerPlayer: 12
   layerPlayerDead: 11
+  deathColor: {r: 1, g: 0, b: 0, a: 0.49019608}
+  inactiveColor: {r: 1, g: 1, b: 1, a: 0.23529412}
+  invincibilityColor: {r: 1, g: 1, b: 1, a: 0.49019608}
 --- !u!50 &6721028352712480029
 Rigidbody2D:
   serializedVersion: 4
