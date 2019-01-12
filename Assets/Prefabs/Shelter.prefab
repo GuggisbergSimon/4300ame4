@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeBurning: 0.5
-  timeNoRebuild: 0
+  timeNoRebuild: 0.52
   timeRebuild: 3
 --- !u!61 &2653125817897109691
 BoxCollider2D:
