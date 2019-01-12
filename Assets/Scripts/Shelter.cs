@@ -22,7 +22,13 @@ public class Shelter : MonoBehaviour
 	{
 		yield return new WaitForSeconds(timeBeforeBurning);
 		myCollider.enabled = false;
-		mySpriteRenderer.enabled = false;
+		if (initialNumberChildren > 0)
+		{
+			for (int i = 0; i < initialNumberChildren; i++)
+			{
+				transform.GetChild(i).gameObject.SetActive(false);
+			}
+		}
 		for (int i = initialNumberChildren; i < transform.childCount; i++)
 		{
 			Destroy(transform.GetChild(i).gameObject);
@@ -37,5 +43,12 @@ public class Shelter : MonoBehaviour
 	{
 		myCollider.enabled = true;
 		mySpriteRenderer.enabled = true;
+		if (initialNumberChildren > 0)
+		{
+			for (int i = 0; i < initialNumberChildren; i++)
+			{
+				transform.GetChild(i).gameObject.SetActive(true);
+			}
+		}
 	}
 }

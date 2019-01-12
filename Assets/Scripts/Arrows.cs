@@ -93,7 +93,8 @@ public class Arrows : MonoBehaviour
 	private void CollisionSolidObject(Collider2D other)
 	{
 		myCollider.enabled = false;
-		myRigidBody.bodyType = RigidbodyType2D.Static;
+		Destroy(myRigidBody);
+		//myRigidBody.bodyType = RigidbodyType2D.Static;
 		aim.SetActive(false);
 		transform.SetParent(other.gameObject.transform);
 	}
