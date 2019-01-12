@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 555068}
   - component: {fileID: 555069}
+  - component: {fileID: 140773688}
   m_Layer: 0
   m_Name: leg_2
   m_TagString: Elephant
@@ -57,6 +58,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27635086, y: 0.09148304}
   m_EdgeRadius: 0
+--- !u!50 &140773688
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555067}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &96857882
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +150,7 @@ GameObject:
   m_Component:
   - component: {fileID: 343550136}
   - component: {fileID: 343550137}
+  - component: {fileID: 594292028}
   m_Layer: 0
   m_Name: leg_1
   m_TagString: Elephant
@@ -175,6 +198,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27796894, y: 0.1027774}
   m_EdgeRadius: 0
+--- !u!50 &594292028
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343550135}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &352751355
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +291,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1126951659}
   - component: {fileID: 1126951660}
+  - component: {fileID: 918456880}
   m_Layer: 0
   m_Name: leg_3
   m_TagString: Elephant
@@ -294,6 +339,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.26542675, y: 0.08285021}
   m_EdgeRadius: 0
+--- !u!50 &918456880
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126951658}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1175678169
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1175678170}
   - component: {fileID: 1175678171}
+  - component: {fileID: 974464686}
   m_Layer: 0
   m_Name: leg_4
   m_TagString: Elephant
@@ -351,6 +418,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.27, y: 0.09758052}
   m_EdgeRadius: 0
+--- !u!50 &974464686
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175678169}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1208822447
 GameObject:
   m_ObjectHideFlags: 0

@@ -237,7 +237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBeforeShot: 2.5
-  speedAim: 3.5
+  speedAim: 0
+  speedRotationAim: 100
   speedShot: 90
   aim: {fileID: 1161319523}
 --- !u!50 &8622634050276281358

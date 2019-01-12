@@ -160,10 +160,11 @@ public class PlayerController : MonoBehaviour
 
 	public void Setup(int initialNumberChildren)
 	{
-		myRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
-		myCollider.enabled = true;
+		//myRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
+		//myCollider.enabled = true;
 		myState = PlayerState.Invincibility;
 		GameManager.Instance.Player = this;
+		this.tag = "Player";
 		this.initialNumberChildren = initialNumberChildren;
 		for (int i = initialNumberChildren; i < transform.childCount; i++)
 		{
@@ -176,12 +177,11 @@ public class PlayerController : MonoBehaviour
 		if (myState != PlayerState.Dying && myState != PlayerState.Invincibility)
 		{
 			//todo add way to see ingame that player is ded
-			//todo make the corpse of the player ragdoll but not interacting with the player
 			myState = PlayerState.Dying;
             //GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
-			myRigidbody2D.velocity = Vector2.zero;
-			myRigidbody2D.bodyType = RigidbodyType2D.Static;
-			myCollider.enabled = false;
+			//myRigidbody2D.velocity = Vector2.zero;
+			//myRigidbody2D.bodyType = RigidbodyType2D.Static;
+			//myCollider.enabled = false;
 			yield return new WaitForSeconds(timeBeforeRespawn);
 
 			//todo make sprite blink while timeInvincibility is used (in update or fixedupdate probably would be best)

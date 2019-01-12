@@ -8,6 +8,7 @@ TagManager:
   - Shelter
   - Elephant
   - Arrow
+  - HeadPlayer
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - ShadowCaster
   - Lighting
   - 3D
-  - 
+  - NoPlayerInteraction
   - 
   - 
   - 
