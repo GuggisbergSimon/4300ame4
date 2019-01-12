@@ -17,10 +17,9 @@ public class BreakableBridge : MonoBehaviour
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 	}
 
-	private void OnCollisionEnter2D(Collision2D other)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log("collision bridge");
-		if (!isBroken && other.gameObject.CompareTag("Elephant"))
+		if (!isBroken && other.CompareTag("Elephant"))
 		{
 			Break();
 		}
