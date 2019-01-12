@@ -7,6 +7,7 @@ public class BreakableBridge : MonoBehaviour
 {
 	[SerializeField] private Sprite[] spritesDestroyed = null;
 	[SerializeField] private GameObject destroyedPartPrefab = null;
+	[SerializeField] private int layerDestroyedPart = 0;
 	private Collider2D myCollider;
 	private SpriteRenderer mySpriteRenderer;
 	private bool isBroken = false;
@@ -44,6 +45,7 @@ public class BreakableBridge : MonoBehaviour
 			                         ((cropping.y > cropping.w ? cropping.y : cropping.w) + heightCropped / 2));
 			Vector2 initPos = (Vector2) transform.position + centerCropped / sprite.pixelsPerUnit;
 			GameObject destroyedPart = Instantiate(destroyedPartPrefab, initPos, transform.rotation, transform);
+			destroyedPart.layer = layerDestroyedPart;
 			BoxCollider2D colliderDestroyer = destroyedPart.GetComponent<BoxCollider2D>();
 			colliderDestroyer.size = Vector2.right * widthCropped / sprite.pixelsPerUnit +
 			                         Vector2.up * heightCropped / sprite.pixelsPerUnit;

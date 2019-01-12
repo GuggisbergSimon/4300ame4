@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class Arrows : MonoBehaviour
@@ -24,7 +23,6 @@ public class Arrows : MonoBehaviour
 		myCollider = GetComponent<Collider2D>();
 		spriteAimRenderer = aim.GetComponentInChildren<SpriteRenderer>();
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
-		//todo check if invoke is really safe to use
 		Invoke("Shoot", timeBeforeShot);
 	}
 
@@ -72,7 +70,7 @@ public class Arrows : MonoBehaviour
 	{
 		if (other.CompareTag("Player"))
 		{
-			StartCoroutine(GameManager.Instance.Player.Die());
+			GameManager.Instance.Player.Die();
 			CollisionSolidObject(other);
 		}
 		else if (other.CompareTag("Arrow"))
@@ -82,7 +80,7 @@ public class Arrows : MonoBehaviour
 		else if (other.CompareTag("Shelter"))
 		{
 			CollisionSolidObject(other);
-			StartCoroutine(other.GetComponent<Shelter>().Burn());
+			other.GetComponent<Shelter>().Burn();
 		}
 		else
 		{

@@ -18,7 +18,12 @@ public class Shelter : MonoBehaviour
 		initialNumberChildren = transform.childCount;
 	}
 
-	public IEnumerator Burn()
+	public void Burn()
+	{
+		StartCoroutine(Burning());
+	}
+	
+	private IEnumerator Burning()
 	{
 		yield return new WaitForSeconds(timeBeforeBurning);
 		myCollider.enabled = false;
@@ -34,6 +39,8 @@ public class Shelter : MonoBehaviour
 			Destroy(transform.GetChild(i).gameObject);
 		}
 		yield return new WaitForSeconds(timeNoRebuild);
+		mySpriteRenderer.enabled = true;
+		mySpriteRenderer.color=Color.gray;
 		//todo make sprite blink while timetorebuild is used
 		yield return new WaitForSeconds(timeRebuild);
 		Build();
@@ -43,6 +50,7 @@ public class Shelter : MonoBehaviour
 	{
 		myCollider.enabled = true;
 		mySpriteRenderer.enabled = true;
+		mySpriteRenderer.color=Color.white;
 		if (initialNumberChildren > 0)
 		{
 			for (int i = 0; i < initialNumberChildren; i++)

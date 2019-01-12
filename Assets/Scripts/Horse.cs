@@ -20,7 +20,7 @@ public class Horse : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StartCoroutine( GameManager.Instance.Player.Die());
+            GameManager.Instance.Player.Die();
         }
     }
 }

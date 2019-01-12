@@ -23,7 +23,7 @@ public class ElephantLeg : MonoBehaviour
         {
             Debug.Log("Meur putain");
 
-            StartCoroutine(GameManager.Instance.Player.Die());
+            GameManager.Instance.Player.Die();
         }
     }
 }
