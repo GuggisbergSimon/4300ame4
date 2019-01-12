@@ -165,6 +165,7 @@ public class PlayerController : MonoBehaviour
 		myState = PlayerState.Invincibility;
 		GameManager.Instance.Player = this;
 		this.tag = "Player";
+        GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
 		this.initialNumberChildren = initialNumberChildren;
 		for (int i = initialNumberChildren; i < transform.childCount; i++)
 		{
@@ -182,6 +183,7 @@ public class PlayerController : MonoBehaviour
 			//myRigidbody2D.velocity = Vector2.zero;
 			//myRigidbody2D.bodyType = RigidbodyType2D.Static;
 			//myCollider.enabled = false;
+            GetComponentInChildren<SpriteRenderer>().color = new Color(1, 0, 0, 0.5f);
 			yield return new WaitForSeconds(timeBeforeRespawn);
 
 			//todo make sprite blink while timeInvincibility is used (in update or fixedupdate probably would be best)
@@ -191,6 +193,8 @@ public class PlayerController : MonoBehaviour
 			newPlayer.Setup(initialNumberChildren);
 			yield return new WaitForSeconds(timeInvincibility);
 			newPlayer.myState = PlayerState.Idle;
-		}
-	}
+		    newPlayer.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+
+        }
+    }
 }
