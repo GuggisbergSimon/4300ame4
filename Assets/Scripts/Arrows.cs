@@ -10,35 +10,23 @@ public class Arrows : MonoBehaviour
 	[SerializeField] private float speedShot = 10.0f;
 	[SerializeField] private GameObject aim = null;
 
-	private SpriteRenderer spriteAimRenderer;
 	private SpriteRenderer mySpriteRenderer;
 	private Rigidbody2D myRigidBody;
 	private bool isShot = false;
-	private float timer = 0.0f;
 	private Collider2D myCollider;
 
 	private void Start()
 	{
 		myRigidBody = GetComponent<Rigidbody2D>();
 		myCollider = GetComponent<Collider2D>();
-		spriteAimRenderer = aim.GetComponentInChildren<SpriteRenderer>();
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		Invoke("Shoot", timeBeforeShot);
-	}
-
-	private void OnDrawGizmos()
-	{
-		float distance = 30.0f;
-		RaycastHit2D hit = Physics2D.Raycast(transform.position - Vector3.up * 5.0f, Vector3.down, distance);
-		Gizmos.DrawSphere(transform.position - Vector3.up * 5.0f, timeBeforeShot - timer);
 	}
 
 	private void Update()
 	{
 		if (!isShot)
 		{
-			timer += Time.deltaTime;
-			
 			//handle the
 			transform.position += Mathf.Sign((GameManager.Instance.Player.transform.position - transform.position).x) *
 			                      Vector3.right * speedAim * Time.deltaTime;
@@ -60,10 +48,6 @@ public class Arrows : MonoBehaviour
 		isShot = true;
 		myRigidBody.gravityScale = 1.0f;
 		myRigidBody.velocity = -transform.up * speedShot;
-		//to use if we want to have arrows aiming correctly at player, which I found a bit unfair, unless we set a rotationspeed when aiming
-		//Vector2 differenceVector = GameManager.Instance.Player.transform.position - transform.position;
-		//myRigidBody.velocity = differenceVector.normalized * speedShot;
-		//transform.up = -differenceVector;
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
@@ -92,7 +76,6 @@ public class Arrows : MonoBehaviour
 	{
 		myCollider.enabled = false;
 		Destroy(myRigidBody);
-		//myRigidBody.bodyType = RigidbodyType2D.Static;
 		aim.SetActive(false);
 		transform.SetParent(other.gameObject.transform);
 	}
