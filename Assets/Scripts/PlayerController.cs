@@ -189,6 +189,8 @@ public class PlayerController : MonoBehaviour
 		if (myState != PlayerState.Dying && myState != PlayerState.Invincibility)
 		{
 			myState = PlayerState.Dying;
+			GameManager.Instance.DeathsPlayerCount++;
+			UIManager.Instance.UpdateUI();
 			mySpriteRenderer.color = deathColor;
 			yield return new WaitForSeconds(timeBeforeRespawn);
 
