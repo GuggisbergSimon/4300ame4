@@ -14,10 +14,15 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private GameObject playerPrefab = null;
 	[SerializeField] private int layerPlayer = 0;
 	[SerializeField] private int layerPlayerDead = 0;
+	[SerializeField] private Color deathColor = Color.red;
+	[SerializeField] private Color inactiveColor = Color.gray;
+	[SerializeField] private Color invincibilityColor = Color.gray;
+	[SerializeField] private AudioClip deathJingleSound = null;
 	private bool hasPressedJump;
 	private bool isAirborne;
 	private Rigidbody2D myRigidbody2D;
 	private SpriteRenderer mySpriteRenderer;
+	private AudioSource myAudioSource;
 	private float horizontalInput;
 	private float verticalInput;
 	private Vector2 respawnPosition;
@@ -63,6 +68,7 @@ public class PlayerController : MonoBehaviour
 	{
 		myRigidbody2D = GetComponent<Rigidbody2D>();
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+		myAudioSource = GetComponent<AudioSource>();
 		respawnPosition = transform.position;
 		initialNumberChildren = transform.childCount;
 	}
@@ -165,7 +171,7 @@ public class PlayerController : MonoBehaviour
 	public void Setup(int initialNumberChildren)
 	{
 		myState = PlayerState.Invincibility;
-		mySpriteRenderer.color = Color.gray;
+		mySpriteRenderer.color = invincibilityColor;
 		GameManager.Instance.Player = this;
 		this.tag = "Player";
 		this.gameObject.layer = layerPlayer;
@@ -180,22 +186,28 @@ public class PlayerController : MonoBehaviour
 	{
 		StartCoroutine(Dying());
 	}
-	
+
 	public IEnumerator Dying()
 	{
 		if (myState != PlayerState.Dying && myState != PlayerState.Invincibility)
 		{
+			myAudioSource.clip = deathJingleSound;
+			myAudioSource.loop = false;
+			myAudioSource.Play();
 			myState = PlayerState.Dying;
-			mySpriteRenderer.color = Color.red;
+			mySpriteRenderer.color = deathColor;
 			yield return new WaitForSeconds(timeBeforeRespawn);
-			
+
+			GameManager.Instance.DeathsPlayerCount++;
+			UIManager.Instance.UpdateUI();
 			this.tag = "Untagged";
 			this.gameObject.layer = layerPlayerDead;
 			GameObject newObject = Instantiate(playerPrefab, respawnPosition, transform.rotation, transform.parent);
 			PlayerController newPlayer = newObject.GetComponent<PlayerController>();
 			newPlayer.Setup(initialNumberChildren);
+			mySpriteRenderer.color = inactiveColor;
 			yield return new WaitForSeconds(timeInvincibility);
-			
+
 			newPlayer.GetComponentInChildren<SpriteRenderer>().color = Color.white;
 			newPlayer.myState = PlayerState.Idle;
 		}

@@ -12,6 +12,14 @@ public class GameManager : MonoBehaviour
 		set => player = value;
 	}
 
+	private int deathsPlayerCount = 0;
+
+	public int DeathsPlayerCount
+	{
+		get => deathsPlayerCount;
+		set => deathsPlayerCount = value;
+	}
+
 	private void OnEnable()
 	{
 		SceneManager.sceneLoaded += OnLevelFinishedLoadingScene;

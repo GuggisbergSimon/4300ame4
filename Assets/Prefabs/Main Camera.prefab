@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1358542462}
   - component: {fileID: 1358542464}
-  - component: {fileID: 1358542463}
   m_Layer: 0
   m_Name: 3D camera
   m_TagString: Untagged
@@ -74,14 +73,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1358542463
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1358542461}
-  m_Enabled: 1
 --- !u!1 &9135293188512943774
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +198,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.13817194, g: 0.2504685, b: 0.4245283, a: 1}
+  m_BackGroundColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -227,7 +218,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 2103
+    m_Bits: 6199
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -321,7 +312,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9135293190224476226}
   - component: {fileID: 9135293190224476228}
-  - component: {fileID: 9135293190224476227}
   - component: {fileID: 9135293190224476229}
   m_Layer: 0
   m_Name: Light Camera
@@ -386,14 +376,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &9135293190224476227
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9135293190224476225}
-  m_Enabled: 1
 --- !u!114 &9135293190224476229
 MonoBehaviour:
   m_ObjectHideFlags: 0
