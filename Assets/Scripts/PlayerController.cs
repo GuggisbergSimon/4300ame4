@@ -17,10 +17,12 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Color deathColor = Color.red;
 	[SerializeField] private Color inactiveColor = Color.gray;
 	[SerializeField] private Color invincibilityColor = Color.gray;
+	[SerializeField] private AudioClip deathJingleSound = null;
 	private bool hasPressedJump;
 	private bool isAirborne;
 	private Rigidbody2D myRigidbody2D;
 	private SpriteRenderer mySpriteRenderer;
+	private AudioSource myAudioSource;
 	private float horizontalInput;
 	private float verticalInput;
 	private Vector2 respawnPosition;
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour
 	{
 		myRigidbody2D = GetComponent<Rigidbody2D>();
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+		myAudioSource = GetComponent<AudioSource>();
 		respawnPosition = transform.position;
 		initialNumberChildren = transform.childCount;
 	}
@@ -188,12 +191,15 @@ public class PlayerController : MonoBehaviour
 	{
 		if (myState != PlayerState.Dying && myState != PlayerState.Invincibility)
 		{
+			myAudioSource.clip = deathJingleSound;
+			myAudioSource.loop = false;
+			myAudioSource.Play();
 			myState = PlayerState.Dying;
-			GameManager.Instance.DeathsPlayerCount++;
-			UIManager.Instance.UpdateUI();
 			mySpriteRenderer.color = deathColor;
 			yield return new WaitForSeconds(timeBeforeRespawn);
 
+			GameManager.Instance.DeathsPlayerCount++;
+			UIManager.Instance.UpdateUI();
 			this.tag = "Untagged";
 			this.gameObject.layer = layerPlayerDead;
 			GameObject newObject = Instantiate(playerPrefab, respawnPosition, transform.rotation, transform.parent);
