@@ -12,15 +12,20 @@ public class Shelter : MonoBehaviour
 	[SerializeField] private GameObject firePrefab = null;
 	[SerializeField] private int minNumberFire = 1;
 	[SerializeField] private int maxNumberFire = 5;
-	[SerializeField] private Color RebuildingColor=Color.gray;
+	[SerializeField] private float yFireOffset = -0.4f;
+	[SerializeField] private Color RebuildingColor = Color.gray;
+	[SerializeField] private AudioClip burningSound = null;
+	[SerializeField] private AudioClip crackingSound = null;
 	private SpriteRenderer mySpriteRenderer;
 	private Collider2D myCollider;
+	private AudioSource[] myAudioSources;
 	private int initialNumberChildren;
 
 	private void Start()
 	{
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		myCollider = GetComponent<Collider2D>();
+		myAudioSources = GetComponents<AudioSource>();
 		initialNumberChildren = transform.childCount;
 	}
 
@@ -29,15 +34,25 @@ public class Shelter : MonoBehaviour
 		StartCoroutine(Burning());
 	}
 
+	private void PlaySound(int index, AudioClip sound, bool loop)
+	{
+		myAudioSources[index].clip = sound;
+		myAudioSources[index].loop = loop;
+		myAudioSources[index].Play();
+	}
+
 	private IEnumerator Burning()
 	{
+		PlaySound(0, burningSound, true);
 		yield return new WaitForSeconds(timeBeforeBurning);
+		PlaySound(1, crackingSound, false);
 		int randomFire = Random.Range(minNumberFire, maxNumberFire);
 		for (int i = 0; i < randomFire; ++i)
 		{
 			Bounds myBounds = myCollider.bounds;
 			Instantiate(firePrefab,
-				new Vector2(Random.Range(myBounds.min.x, myBounds.max.x), Random.Range(myBounds.min.y, myBounds.max.y)),
+				new Vector2(Random.Range(myBounds.min.x, myBounds.max.x),
+					Random.Range(myBounds.min.y, myBounds.max.y) + yFireOffset),
 				transform.rotation, transform);
 			yield return new WaitForSeconds(timeBetweenNewFlame);
 		}

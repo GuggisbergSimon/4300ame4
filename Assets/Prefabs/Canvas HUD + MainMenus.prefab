@@ -1624,7 +1624,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathsPlayerCounts: {fileID: 6784340030016646837}
   wavesCounts: {fileID: 1600193180075988632}
-  deathNumberUpSound: {fileID: 8300000, guid: bed53b345894bcd41976178d12f662c9, type: 3}
+  respawnSound: {fileID: 0}
+  enableSound: {fileID: 0}
+  disableSound: {fileID: 0}
+  startSound: {fileID: 0}
+  selectSound: {fileID: 0}
+  backSound: {fileID: 0}
 --- !u!82 &6166127073136182256
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1634,9 +1639,9 @@ AudioSource:
   m_GameObject: {fileID: 6784340028946332429}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 243933580489266654, guid: 47cc214e460ca15488b9caea8e56a406,
+  OutputAudioMixerGroup: {fileID: 243166098857059912, guid: 47cc214e460ca15488b9caea8e56a406,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: bed53b345894bcd41976178d12f662c9, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
