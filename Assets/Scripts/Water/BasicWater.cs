@@ -57,9 +57,20 @@ public class BasicWater : MonoBehaviour
 		}
 	}
 
+	public void RaiseHeightFunction(bool raise, float speed)
+	{
+		if (raise)
+		{
+			StartCoroutine(RaiseHeight(transform.position.y+maxHeight, maxHeight / speed));
+		}
+		else
+		{
+			StartCoroutine(RaiseHeight(transform.position.y, maxHeight / speed));
+		}
+	}
+
 	private void SetHeight(float height)
 	{
-		
 		sprite.transform.localScale = Vector2.right * sprite.transform.localScale + Vector2.up * height;
 		sprite.transform.localPosition = Vector2.right * sprite.transform.localPosition + Vector2.up * height / 2;
 		myCollider.size = Vector2.right * myCollider.size + Vector2.up * height;
