@@ -24,12 +24,6 @@ public class Elephant : MonoBehaviour
         animator.SetFloat("Speed", speed);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Destroy()
     {
         Destroy(gameObject);
