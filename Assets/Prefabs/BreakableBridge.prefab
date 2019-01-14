@@ -25,6 +25,7 @@ MonoBehaviour:
   enableRandomnessForDestroying: 1
   minVelocityRandom: -15
   maxVelocityRandom: 15
+  destroyedColor: {r: 1, g: 1, b: 1, a: 0.23529412}
 --- !u!1001 &4705267041175278616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -116,16 +117,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableBridge
       objectReference: {fileID: 0}
-    - target: {fileID: 6956270064649472661, guid: b6444c1baccff7546b06cde23648fd0b,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6956270064649472661, guid: b6444c1baccff7546b06cde23648fd0b,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 6240314094676694414, guid: b6444c1baccff7546b06cde23648fd0b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -185,6 +176,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956270064649472661, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956270064649472661, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7402176603941459745, guid: b6444c1baccff7546b06cde23648fd0b,
         type: 3}

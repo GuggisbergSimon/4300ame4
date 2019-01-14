@@ -12,6 +12,7 @@ public class BreakableBridge : MonoBehaviour
 	[SerializeField] private bool enableRandomnessForDestroying = true;
 	[SerializeField] private float minVelocityRandom = -15.0f;
 	[SerializeField] private float maxVelocityRandom = 15.0f;
+	[SerializeField] Color destroyedColor = Color.gray;
 	private Collider2D myCollider;
 	private SpriteRenderer mySpriteRenderer;
 	private bool isBroken = false;
@@ -68,7 +69,7 @@ public class BreakableBridge : MonoBehaviour
 
 			SpriteRenderer spriteDestroyedRenderer = destroyedPart.GetComponentInChildren<SpriteRenderer>();
 			spriteDestroyedRenderer.sprite = sprite;
-			spriteDestroyedRenderer.color = Color.gray;
+			spriteDestroyedRenderer.color = destroyedColor;
 			spriteDestroyedRenderer.gameObject.transform.position = transform.position;
 
 			GameObject cubeShadowCaster = Instantiate(cubeShadowCasterPrefab, destroyedPart.transform);
