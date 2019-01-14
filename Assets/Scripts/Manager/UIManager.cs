@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -9,12 +10,9 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI deathsPlayerCounts = null;
 	[SerializeField] private TextMeshProUGUI wavesCounts = null;
 	[SerializeField] private AudioClip respawnSound = null;
-	[SerializeField] private AudioClip neWaveSound = null;
-	[SerializeField] private AudioClip enableSound = null;
-	[SerializeField] private AudioClip disableSound = null;
+	[SerializeField] private AudioClip newWaveSound = null;
 	[SerializeField] private AudioClip startSound = null;
 	[SerializeField] private AudioClip selectSound = null;
-	[SerializeField] private AudioClip backSound = null;
 	private static UIManager instance;
 	public static UIManager Instance => instance;
 	private AudioSource myAudioSource;
@@ -23,11 +21,8 @@ public class UIManager : MonoBehaviour
 	{
 		respawnSound,
 		newWaveSound,
-		enableSound,
-		disableSound,
 		startSound,
 		selectSound,
-		backSound
 	}
 
 	private Dictionary<enumSound, AudioClip> enumSoundToAudioClip = new Dictionary<enumSound, AudioClip>();
@@ -37,12 +32,9 @@ public class UIManager : MonoBehaviour
 	{
 		//todo find a way more efficient to write this
 		enumSoundToAudioClip.Add(enumSound.respawnSound, respawnSound);
-		enumSoundToAudioClip.Add(enumSound.newWaveSound, neWaveSound);
-		enumSoundToAudioClip.Add(enumSound.enableSound, enableSound);
-		enumSoundToAudioClip.Add(enumSound.disableSound, disableSound);
+		enumSoundToAudioClip.Add(enumSound.newWaveSound, newWaveSound);
 		enumSoundToAudioClip.Add(enumSound.startSound, startSound);
 		enumSoundToAudioClip.Add(enumSound.selectSound, selectSound);
-		enumSoundToAudioClip.Add(enumSound.backSound, backSound);
 		instance = this;
 		myAudioSource = GetComponent<AudioSource>();
 	}
@@ -54,10 +46,15 @@ public class UIManager : MonoBehaviour
 		myAudioSource.Play();
 	}
 
+	public void PlaySound(string sound)
+	{
+		Enum.TryParse(sound, out enumSound mySound);
+		PlaySound(mySound);
+	}
+
 	public void ResetSelectedPosition(GameObject button)
 	{
-		EventSystem eventSystem = EventSystem.current;
-		eventSystem.SetSelectedGameObject(button);
+		EventSystem.current.SetSelectedGameObject(button);
 	}
 
 	public void UpdateUI()

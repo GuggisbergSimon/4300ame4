@@ -19,8 +19,10 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Color invincibilityColor = Color.gray;
 	[SerializeField] private AudioClip[] deathSounds = null;
 	[SerializeField] private AudioClip jumpSound = null;
+
 	[SerializeField] private AudioClip[] landSounds = null;
-	[SerializeField] private AudioClip walkSound = null;
+
+	//[SerializeField] private AudioClip walkSound = null;
 	private bool hasPressedJump;
 	private bool isAirborne;
 	private Rigidbody2D myRigidbody2D;
@@ -199,18 +201,18 @@ public class PlayerController : MonoBehaviour
 		if (value)
 		{
 			myState = PlayerState.Idle;
-			myAudioSource.enabled = true;
+			myRigidbody2D.bodyType = RigidbodyType2D.Dynamic;
 			for (int i = 0; i < transform.childCount; i++)
-			{	
+			{
 				transform.GetChild(i).gameObject.SetActive(true);
 			}
 		}
 		else
 		{
 			myState = PlayerState.Dying;
-			myAudioSource.enabled = true;
+			myRigidbody2D.bodyType = RigidbodyType2D.Static;
 			for (int i = 0; i < transform.childCount; i++)
-			{	
+			{
 				transform.GetChild(i).gameObject.SetActive(false);
 			}
 		}
