@@ -43,7 +43,7 @@ namespace Prime31
 		[Tooltip( "This must be set before the component is enabled to take effect" )]
 		FilterMode rtFilterMode = FilterMode.Point;
 		[SerializeField]
-		[Range( 0.1f, 1f )]
+		[Range( 0.1f, 2f )]
 		[Tooltip( "This must be set before the component is enabled to take effect" )]
 		float rtSizeMultiplier = 1f;
 

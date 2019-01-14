@@ -395,5 +395,5 @@ MonoBehaviour:
   rtFormat: 7
   rtTextureDepth: 0
   rtFilterMode: 0
-  rtSizeMultiplier: 1
+  rtSizeMultiplier: 2
   _spriteLightCamera: {fileID: 9135293190224476228}

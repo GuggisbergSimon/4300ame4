@@ -6,6 +6,7 @@ public class Ground : MonoBehaviour
 {
 	[SerializeField] private float zPosition = 10.0f;
 	[SerializeField] private GameObject planePrefab = null;
+	private const float PLANE_WIDTH = 10.0f;
 
 	private void Awake()
 	{
@@ -20,7 +21,7 @@ public class Ground : MonoBehaviour
 			float angle = Vector3.SignedAngle(diff, Vector3.right, -Vector3.forward);
 			GameObject plane = Instantiate(planePrefab, pos, Quaternion.Euler(0, 0, angle), transform);
 			plane.transform.localScale =
-				Vector3.right * diff.magnitude / 10.0f + Vector3.forward * plane.transform.localScale.z;
+				Vector3.right * diff.magnitude / PLANE_WIDTH + Vector3.forward * plane.transform.localScale.z;
 		}
 	}
 }
