@@ -58,6 +58,10 @@ public class Shelter : MonoBehaviour
 		}
 
 		yield return new WaitForSeconds(timeBurning);
+		foreach (var myAudioSource in myAudioSources)
+		{
+			myAudioSource.Stop();
+		}
 		myCollider.enabled = false;
 
 		for (int i = 0; i < initialNumberChildren; i++)
