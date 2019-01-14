@@ -7,19 +7,23 @@ public class BreakableBridge : MonoBehaviour
 {
 	[SerializeField] private Sprite[] spritesDestroyed = null;
 	[SerializeField] private GameObject destroyedPartPrefab = null;
-	[SerializeField] private GameObject cubeShadowCasterPrefab;
+	[SerializeField] private GameObject cubeShadowCasterPrefab = null;
 	[SerializeField] private int layerDestroyedPart = 0;
 	[SerializeField] private bool enableRandomnessForDestroying = true;
 	[SerializeField] private float minVelocityRandom = -15.0f;
 	[SerializeField] private float maxVelocityRandom = 15.0f;
+	[SerializeField] Color destroyedColor = Color.gray;
+	[SerializeField] private AudioClip destructionSound = null;
 	private Collider2D myCollider;
-	private SpriteRenderer mySpriteRenderer;
+	//private SpriteRenderer mySpriteRenderer;
+	private AudioSource myAudioSource;
 	private bool isBroken = false;
 
 	private void Start()
 	{
 		myCollider = GetComponent<Collider2D>();
-		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+		myAudioSource = GetComponent<AudioSource>();
+		//mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
@@ -29,9 +33,17 @@ public class BreakableBridge : MonoBehaviour
 			Break();
 		}
 	}
+	
+	private void PlaySound(AudioClip sound)
+	{
+		myAudioSource.clip = sound;
+		myAudioSource.loop = false;
+		myAudioSource.Play();
+	}
 
 	private void Break()
 	{
+		PlaySound(destructionSound);
 		isBroken = true;
 		Destroy(myCollider);
 		for (int i = 0; i < transform.childCount; i++)
@@ -68,7 +80,7 @@ public class BreakableBridge : MonoBehaviour
 
 			SpriteRenderer spriteDestroyedRenderer = destroyedPart.GetComponentInChildren<SpriteRenderer>();
 			spriteDestroyedRenderer.sprite = sprite;
-			spriteDestroyedRenderer.color = Color.gray;
+			spriteDestroyedRenderer.color = destroyedColor;
 			spriteDestroyedRenderer.gameObject.transform.position = transform.position;
 
 			GameObject cubeShadowCaster = Instantiate(cubeShadowCasterPrefab, destroyedPart.transform);

@@ -511,7 +511,16 @@ MonoBehaviour:
   deathColor: {r: 1, g: 0, b: 0, a: 0.49019608}
   inactiveColor: {r: 1, g: 1, b: 1, a: 0.23529412}
   invincibilityColor: {r: 1, g: 1, b: 1, a: 0.49019608}
-  deathJingleSound: {fileID: 0}
+  deathSounds:
+  - {fileID: 8300000, guid: 52087ed0b7f9f0c45b98cb886370ed8e, type: 3}
+  - {fileID: 8300000, guid: 55e4c71fb6d37354fa69ccfd8e9f73e2, type: 3}
+  - {fileID: 8300000, guid: b60df4e8b1c513b439b3da0e1ade808a, type: 3}
+  jumpSound: {fileID: 8300000, guid: 8c7c3f861c600784aa5c006ea1efeb39, type: 3}
+  landSounds:
+  - {fileID: 8300000, guid: 26ab86768a3575f4baa202d6bea7a858, type: 3}
+  - {fileID: 8300000, guid: 514797314482cb84fbb90279c8a10005, type: 3}
+  - {fileID: 8300000, guid: 78533dde3f17421458215c36c7ea03a7, type: 3}
+  walkSound: {fileID: 0}
 --- !u!50 &6721028352712480029
 Rigidbody2D:
   serializedVersion: 4
@@ -586,7 +595,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -683,11 +692,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubeShadowCaster
       objectReference: {fileID: 0}
-    - target: {fileID: 8332841779458112876, guid: 6d11e92e2e0af864288aa0c793902430,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7164226476161705173, guid: 6d11e92e2e0af864288aa0c793902430,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -701,7 +705,7 @@ PrefabInstance:
     - target: {fileID: 7164226476161705173, guid: 6d11e92e2e0af864288aa0c793902430,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7164226476161705173, guid: 6d11e92e2e0af864288aa0c793902430,
         type: 3}
@@ -742,6 +746,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164226476161705173, guid: 6d11e92e2e0af864288aa0c793902430,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d11e92e2e0af864288aa0c793902430, type: 3}

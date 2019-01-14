@@ -17,7 +17,10 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Color deathColor = Color.red;
 	[SerializeField] private Color inactiveColor = Color.gray;
 	[SerializeField] private Color invincibilityColor = Color.gray;
-	[SerializeField] private AudioClip deathJingleSound = null;
+	[SerializeField] private AudioClip[] deathSounds = null;
+	[SerializeField] private AudioClip jumpSound = null;
+	[SerializeField] private AudioClip[] landSounds = null;
+	[SerializeField] private AudioClip walkSound = null;
 	private bool hasPressedJump;
 	private bool isAirborne;
 	private Rigidbody2D myRigidbody2D;
@@ -95,6 +98,7 @@ public class PlayerController : MonoBehaviour
 				//launch the jump
 				if (hasPressedJump)
 				{
+					PlaySound(jumpSound);
 					myRigidbody2D.velocity = Vector2.up * jumpSpeed;
 					hasPressedJump = false;
 				}
@@ -178,6 +182,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Shelter"))
 		{
+			PlaySound(landSounds[Random.Range(0,landSounds.Length)]);
 			isAirborne = false;
 		}
 	}
@@ -201,13 +206,18 @@ public class PlayerController : MonoBehaviour
 		StartCoroutine(Dying());
 	}
 
+	private void PlaySound(AudioClip sound)
+	{
+		myAudioSource.clip = sound;
+		myAudioSource.loop = false;
+		myAudioSource.Play();
+	}
+	
 	public IEnumerator Dying()
 	{
 		if (myState != PlayerState.Dying && myState != PlayerState.Invincibility)
 		{
-			myAudioSource.clip = deathJingleSound;
-			myAudioSource.loop = false;
-			myAudioSource.Play();
+			PlaySound(deathSounds[Random.Range(0,deathSounds.Length)]);
 			myState = PlayerState.Dying;
 			mySpriteRenderer.color = deathColor;
 			yield return new WaitForSeconds(timeBeforeRespawn);

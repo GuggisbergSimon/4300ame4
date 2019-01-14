@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightControl : MonoBehaviour {
+public class LightControl : MonoBehaviour
+{
+	private Light myLight;
+	float nRand = 0;
 
-    float nRand = 0;
-	
-	void Update ()
-    {
-        nRand = Random.RandomRange(4f, 5f);
-        this.transform.GetComponent<Light>().intensity = nRand;
+	private void Start()
+	{
+		myLight = GetComponent<Light>();
+	}
+
+	void Update()
+	{
+		nRand = Random.Range(4f, 5f);
+		myLight.intensity = nRand;
 	}
 }
