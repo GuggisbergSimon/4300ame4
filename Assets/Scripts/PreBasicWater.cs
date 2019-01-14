@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BasicWater : MonoBehaviour
+public class PreBasicWater : MonoBehaviour
 {
 	[SerializeField] private float width = 2.0f;
 	[SerializeField] private float maxHeight = 2.0f;
