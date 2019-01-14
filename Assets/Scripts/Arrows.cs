@@ -10,8 +10,9 @@ public class Arrows : MonoBehaviour
 	[SerializeField] private float speedShot = 10.0f;
 	[SerializeField] private GameObject aim = null;
 	[SerializeField] private GameObject fire = null;
+	[SerializeField] private AudioClip releaseSound = null;
 	[SerializeField] private AudioClip aimingSound = null;
-	[SerializeField] private AudioClip shootingSound = null;
+	[SerializeField] private AudioClip[] shootingSounds = null;
 	private SpriteRenderer mySpriteRenderer;
 	private Rigidbody2D myRigidBody;
 	private bool isShot = false;
@@ -25,7 +26,7 @@ public class Arrows : MonoBehaviour
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		myAudioSource = GetComponent<AudioSource>();
 		Invoke("Shoot", timeBeforeShot);
-		PlaySound(aimingSound);
+		PlaySound(releaseSound);
 	}
 
 	private void Update()
@@ -57,7 +58,7 @@ public class Arrows : MonoBehaviour
 	
 	private void Shoot()
 	{
-		PlaySound(shootingSound);
+		PlaySound(shootingSounds[Random.Range(0,shootingSounds.Length)]);
 		isShot = true;
 		myRigidBody.gravityScale = 1.0f;
 		myRigidBody.velocity = -transform.up * speedShot;

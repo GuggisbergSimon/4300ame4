@@ -8,7 +8,7 @@ public class BasicWater : MonoBehaviour
 	[SerializeField] private float maxHeight = 2.0f;
 	[SerializeField] private GameObject sprite = null;
 	[SerializeField] private AudioClip raisingSound = null;
-	[SerializeField] private AudioClip splashSound = null;
+	[SerializeField] private AudioClip[] splashSound = null;
 	private BoxCollider2D myCollider;
 	private bool isRaising = false;
 	private float finalHeight;
@@ -81,7 +81,7 @@ public class BasicWater : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		PlaySound(1, splashSound, false);
+		PlaySound(1, splashSound[Random.Range(0,splashSound.Length)], false);
 	}
 
 	private void OnTriggerStay2D(Collider2D other)

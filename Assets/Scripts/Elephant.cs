@@ -8,7 +8,7 @@ public class Elephant : MonoBehaviour
     [SerializeField] private float shakeFrequency;
     [SerializeField] private float shakeTime;
     [SerializeField] private AudioClip stepSound = null;
-    [SerializeField] private AudioClip trumpetSound = null;
+    [SerializeField] private AudioClip[] trumpetSound = null;
     private AudioSource[] myAudioSources;
 
     private Animator animator;
@@ -42,7 +42,7 @@ public class Elephant : MonoBehaviour
 
     public void Trumpet()
     {
-        PlaySound(1,trumpetSound);
+        PlaySound(1,trumpetSound[Random.Range(0,trumpetSound.Length)]);
     }
 
     public IEnumerator Shake()

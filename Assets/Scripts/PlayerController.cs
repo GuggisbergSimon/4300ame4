@@ -17,9 +17,9 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private Color deathColor = Color.red;
 	[SerializeField] private Color inactiveColor = Color.gray;
 	[SerializeField] private Color invincibilityColor = Color.gray;
-	[SerializeField] private AudioClip deathSound = null;
+	[SerializeField] private AudioClip[] deathSounds = null;
 	[SerializeField] private AudioClip jumpSound = null;
-	[SerializeField] private AudioClip landSound = null;
+	[SerializeField] private AudioClip[] landSounds = null;
 	[SerializeField] private AudioClip walkSound = null;
 	private bool hasPressedJump;
 	private bool isAirborne;
@@ -168,7 +168,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Shelter"))
 		{
-			PlaySound(landSound);
+			PlaySound(landSounds[Random.Range(0,landSounds.Length)]);
 			isAirborne = false;
 		}
 	}
@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
 
 	private void PlaySound(AudioClip sound)
 	{
-		myAudioSource.clip = deathSound;
+		myAudioSource.clip = sound;
 		myAudioSource.loop = false;
 		myAudioSource.Play();
 	}
@@ -203,7 +203,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (myState != PlayerState.Dying && myState != PlayerState.Invincibility)
 		{
-			PlaySound(deathSound);
+			PlaySound(deathSounds[Random.Range(0,deathSounds.Length)]);
 			myState = PlayerState.Dying;
 			mySpriteRenderer.color = deathColor;
 			yield return new WaitForSeconds(timeBeforeRespawn);

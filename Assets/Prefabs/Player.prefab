@@ -512,7 +512,16 @@ MonoBehaviour:
   deathColor: {r: 1, g: 0, b: 0, a: 0.49019608}
   inactiveColor: {r: 1, g: 1, b: 1, a: 0.23529412}
   invincibilityColor: {r: 1, g: 1, b: 1, a: 0.49019608}
-  deathJingleSound: {fileID: 8300000, guid: a3d353b6d0ba06247a7bcac066d82854, type: 3}
+  deathSounds:
+  - {fileID: 8300000, guid: 52087ed0b7f9f0c45b98cb886370ed8e, type: 3}
+  - {fileID: 8300000, guid: 55e4c71fb6d37354fa69ccfd8e9f73e2, type: 3}
+  - {fileID: 8300000, guid: b60df4e8b1c513b439b3da0e1ade808a, type: 3}
+  jumpSound: {fileID: 8300000, guid: 8c7c3f861c600784aa5c006ea1efeb39, type: 3}
+  landSounds:
+  - {fileID: 8300000, guid: 26ab86768a3575f4baa202d6bea7a858, type: 3}
+  - {fileID: 8300000, guid: 514797314482cb84fbb90279c8a10005, type: 3}
+  - {fileID: 8300000, guid: 78533dde3f17421458215c36c7ea03a7, type: 3}
+  walkSound: {fileID: 0}
 --- !u!50 &6721028352712480029
 Rigidbody2D:
   serializedVersion: 4
