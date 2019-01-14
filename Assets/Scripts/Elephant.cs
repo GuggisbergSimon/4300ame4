@@ -10,7 +10,6 @@ public class Elephant : MonoBehaviour
     [SerializeField] private AudioClip stepSound = null;
     [SerializeField] private AudioClip[] trumpetSound = null;
     private AudioSource[] myAudioSources;
-
     private Animator animator;
 
     private float speed;
@@ -51,7 +50,5 @@ public class Elephant : MonoBehaviour
         CameraManager.Instance.Noise(shakeAmplitude, shakeFrequency);
         yield return new WaitForSeconds(shakeTime);
         CameraManager.Instance.Noise(0, 0);
-
     }
-
 }
