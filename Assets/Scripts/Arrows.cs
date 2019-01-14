@@ -38,7 +38,7 @@ public class Arrows : MonoBehaviour
 			transform.rotation =
 				Quaternion.RotateTowards(transform.rotation, targetRot, speedRotationAim * Time.deltaTime);
 		}
-		fire.transform.localRotation = Quaternion.Euler(Vector3.forward*-transform.rotation.eulerAngles.z);
+		fire.transform.rotation = Quaternion.Euler(Vector3.zero);
 	}
 
 	private void Shoot()
