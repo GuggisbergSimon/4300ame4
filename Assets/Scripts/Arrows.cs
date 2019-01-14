@@ -9,7 +9,8 @@ public class Arrows : MonoBehaviour
 	[SerializeField] private float speedRotationAim = 0.0f;
 	[SerializeField] private float speedShot = 10.0f;
 	[SerializeField] private GameObject aim = null;
-
+	[SerializeField] private GameObject fire = null;
+	
 	private SpriteRenderer mySpriteRenderer;
 	private Rigidbody2D myRigidBody;
 	private bool isShot = false;
@@ -37,10 +38,7 @@ public class Arrows : MonoBehaviour
 			transform.rotation =
 				Quaternion.RotateTowards(transform.rotation, targetRot, speedRotationAim * Time.deltaTime);
 		}
-
-		RaycastHit2D hit = Physics2D.Raycast(transform.position - transform.up.normalized * mySpriteRenderer.transform.localScale.x / 2,
-			-transform.up);
-		aim.transform.position = hit.point;
+		fire.transform.localRotation = Quaternion.Euler(Vector3.forward*-transform.rotation.eulerAngles.z);
 	}
 
 	private void Shoot()
