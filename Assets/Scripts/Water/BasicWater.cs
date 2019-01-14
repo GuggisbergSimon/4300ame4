@@ -17,10 +17,11 @@ public class BasicWater : MonoBehaviour
 	
 	private void Start()
 	{
-		myCollider = GetComponentInChildren<BoxCollider2D>();
+		myCollider = GetComponent<BoxCollider2D>();
 		SetHeight(0.0f);
 		SetWidth(width);
 		myAudioSources = GetComponents<AudioSource>();
+		StartCoroutine(RaiseHeight(20, 1));
 	}
 
 	private void PlaySound(int index, AudioClip sound, bool loop)
@@ -74,7 +75,7 @@ public class BasicWater : MonoBehaviour
 		sprite.transform.localScale = Vector2.right * sprite.transform.localScale + Vector2.up * height;
 		sprite.transform.localPosition = Vector2.right * sprite.transform.localPosition + Vector2.up * height / 2;
 		myCollider.size = Vector2.right * myCollider.size + Vector2.up * height;
-		myCollider.gameObject.transform.localPosition = Vector2.right * myCollider.transform.localPosition + Vector2.up * height / 2;
+		myCollider.offset = Vector2.up * height / 2;
 	}
 
 	private void SetWidth(float width)
@@ -92,11 +93,15 @@ public class BasicWater : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
+		Debug.Log("test");
 		PlaySound(1, splashSound[Random.Range(0,splashSound.Length)], false);
 	}
 
 	private void OnTriggerStay2D(Collider2D other)
 	{
+		
+		Debug.Log("test");
+		Debug.Log(Contains((other.bounds)));
 		if (other.CompareTag("Player") && Contains(other.bounds))
 		{
 			GameManager.Instance.Player.Die();
