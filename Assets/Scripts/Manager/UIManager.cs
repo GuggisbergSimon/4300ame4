@@ -35,6 +35,7 @@ public class UIManager : MonoBehaviour
 	
 	private void Awake()
 	{
+		//todo find a way more efficient to write this
 		enumSoundToAudioClip.Add(enumSound.respawnSound,respawnSound);
 		enumSoundToAudioClip.Add(enumSound.enableSound,enableSound);
 		enumSoundToAudioClip.Add(enumSound.disableSound,disableSound);

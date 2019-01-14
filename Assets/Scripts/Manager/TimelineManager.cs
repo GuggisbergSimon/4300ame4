@@ -7,7 +7,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private GameObject elephantPrefab;
     [SerializeField] private GameObject horsePrefab;
-    [SerializeField] private PreBasicWater waterGameObject;
+    [SerializeField] private BasicWater waterGameObject;
 
     [SerializeField] private GameObject spawnerArrow;
     [SerializeField] private GameObject spawnerElephant;

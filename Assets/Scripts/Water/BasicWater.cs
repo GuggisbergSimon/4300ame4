@@ -14,13 +14,14 @@ public class BasicWater : MonoBehaviour
 	private float finalHeight;
 	private float finalTime;
 	private AudioSource[] myAudioSources;
-	
+
 	private void Start()
 	{
-		myCollider = GetComponentInChildren<BoxCollider2D>();
+		myCollider = GetComponent<BoxCollider2D>();
 		SetHeight(0.0f);
 		SetWidth(width);
 		myAudioSources = GetComponents<AudioSource>();
+		RaiseHeightFunction(true, 1);
 	}
 
 	private void PlaySound(int index, AudioClip sound, bool loop)
@@ -29,7 +30,7 @@ public class BasicWater : MonoBehaviour
 		myAudioSources[index].loop = loop;
 		myAudioSources[index].Play();
 	}
-	
+
 	public IEnumerator RaiseHeight(float height, float time)
 	{
 		if (!isRaising)
@@ -57,13 +58,24 @@ public class BasicWater : MonoBehaviour
 		}
 	}
 
+	public void RaiseHeightFunction(bool raise, float speed)
+	{
+		if (raise)
+		{
+			StartCoroutine(RaiseHeight(maxHeight, maxHeight / speed));
+		}
+		else
+		{
+			StartCoroutine(RaiseHeight(0, maxHeight / speed));
+		}
+	}
+
 	private void SetHeight(float height)
 	{
-		
 		sprite.transform.localScale = Vector2.right * sprite.transform.localScale + Vector2.up * height;
 		sprite.transform.localPosition = Vector2.right * sprite.transform.localPosition + Vector2.up * height / 2;
 		myCollider.size = Vector2.right * myCollider.size + Vector2.up * height;
-		myCollider.gameObject.transform.localPosition = Vector2.right * myCollider.transform.localPosition + Vector2.up * height / 2;
+		myCollider.offset = Vector2.up * height / 2;
 	}
 
 	private void SetWidth(float width)
@@ -76,12 +88,12 @@ public class BasicWater : MonoBehaviour
 	{
 		Bounds container = myCollider.bounds;
 		return container.min.x <= bounds.min.x && container.min.y <= bounds.min.y &&
-		       container.max.x >= bounds.max.x && container.max.y >= bounds.max.y;
+			   container.max.x >= bounds.max.x && container.max.y >= bounds.max.y;
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-		PlaySound(1, splashSound[Random.Range(0,splashSound.Length)], false);
+		PlaySound(1, splashSound[Random.Range(0, splashSound.Length)], false);
 	}
 
 	private void OnTriggerStay2D(Collider2D other)
