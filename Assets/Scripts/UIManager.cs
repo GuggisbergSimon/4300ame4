@@ -5,7 +5,8 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
 	[SerializeField] private TextMeshProUGUI deathsPlayerCounts = null;
-	[SerializeField] private AudioClip deathNumberUpSound=null;
+	[SerializeField] private TextMeshProUGUI wavesCounts = null;
+    [SerializeField] private AudioClip deathNumberUpSound=null;
 	private static UIManager instance;
 	public static UIManager Instance => instance;
 	private AudioSource myAudioSource;
@@ -20,9 +21,13 @@ public class UIManager : MonoBehaviour
 	{
 		deathsPlayerCounts.text = deathsPlayerCounts.text.Remove(deathsPlayerCounts.text.IndexOf(":") + 2);
 		deathsPlayerCounts.text = deathsPlayerCounts.text.Insert(deathsPlayerCounts.text.Length,
-			GameManager.Instance.DeathsPlayerCount.ToString());
+		GameManager.Instance.DeathsPlayerCount.ToString());
 		myAudioSource.clip = deathNumberUpSound;
 		myAudioSource.loop = false;
 		myAudioSource.Play();
-	}
+
+	    wavesCounts.text = wavesCounts.text.Remove(wavesCounts.text.IndexOf(":") + 2);
+	    wavesCounts.text = wavesCounts.text.Insert(wavesCounts.text.Length,
+	    GameManager.Instance.WavesCount.ToString());
+    }
 }
