@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private int layerPlayer = 0;
 	[SerializeField] private int layerPlayerDead = 0;
 	[SerializeField] private Color deathColor = Color.red;
-	[SerializeField] private Color inactiveColor = Color.gray;
+	[SerializeField] private Color inactiveColor = Color.red;
 	[SerializeField] private Color invincibilityColor = Color.gray;
 	[SerializeField] private AudioClip[] deathSounds = null;
 	[SerializeField] private AudioClip jumpSound = null;
@@ -191,7 +191,8 @@ public class PlayerController : MonoBehaviour
 	{
 		myState = PlayerState.Invincibility;
 		mySpriteRenderer.color = invincibilityColor;
-		GameManager.Instance.Player = this;
+	    myAnimator.SetBool("Death", false);
+        GameManager.Instance.Player = this;
 		this.tag = "Player";
 		this.gameObject.layer = layerPlayer;
 		this.initialNumberChildren = initialNumberChildren;
@@ -220,7 +221,8 @@ public class PlayerController : MonoBehaviour
 			PlaySound(deathSounds[Random.Range(0,deathSounds.Length)]);
 			myState = PlayerState.Dying;
 			mySpriteRenderer.color = deathColor;
-			yield return new WaitForSeconds(timeBeforeRespawn);
+		    myAnimator.SetBool("Death", true);
+            yield return new WaitForSeconds(timeBeforeRespawn);
 
 			GameManager.Instance.DeathsPlayerCount++;
 			UIManager.Instance.UpdateUI();
@@ -231,7 +233,6 @@ public class PlayerController : MonoBehaviour
 			newPlayer.Setup(initialNumberChildren);
 			mySpriteRenderer.color = inactiveColor;
 			yield return new WaitForSeconds(timeInvincibility);
-
 			newPlayer.GetComponentInChildren<SpriteRenderer>().color = Color.white;
 			newPlayer.myState = PlayerState.Idle;
 		}
