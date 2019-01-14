@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D myRigidbody2D;
 	private SpriteRenderer mySpriteRenderer;
 	private Animator myAnimator;
-    private AudioSource myAudioSource;
+	private AudioSource myAudioSource;
 	private float horizontalInput;
 	private float verticalInput;
 	private Vector2 respawnPosition;
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
 	private PlayerState myState;
 
-	public PlayerState MyState
+	private PlayerState MyState
 	{
 		get => myState;
 		set
@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		myAudioSource = GetComponent<AudioSource>();
 		myAnimator = GetComponentInChildren<Animator>();
-	    respawnPosition = transform.position;
+		respawnPosition = transform.position;
 		initialNumberChildren = transform.childCount;
 	}
 
@@ -115,7 +115,6 @@ public class PlayerController : MonoBehaviour
 				}
 
 
-
 				//adjust horizontal velocity
 				myRigidbody2D.velocity = Vector2.right * speed * horizontalInput + myRigidbody2D.velocity * Vector2.up;
 				break;
@@ -142,7 +141,7 @@ public class PlayerController : MonoBehaviour
 
 			case PlayerState.Dying:
 			{
-			    myAnimator.speed = 0;
+				myAnimator.speed = 0;
 				break;
 			}
 
@@ -150,20 +149,19 @@ public class PlayerController : MonoBehaviour
 			{
 				//updates horizontal input
 				horizontalInput = Input.GetAxis("Horizontal");
-			    myAnimator.speed = Mathf.Abs( myRigidbody2D.velocity.x);
-                //flips the animator gameobject depending on direction
-                if (horizontalInput > 0)
-			    {
-			        mySpriteRenderer.flipX = true;
-			    }
-			    else if (horizontalInput < 0)
-			    {
-			        mySpriteRenderer.flipX = false;
+				myAnimator.speed = Mathf.Abs(myRigidbody2D.velocity.x);
+				//flips the animator gameobject depending on direction
+				if (horizontalInput > 0)
+				{
+					mySpriteRenderer.flipX = true;
+				}
+				else if (horizontalInput < 0)
+				{
+					mySpriteRenderer.flipX = false;
+				}
 
-                }
-
-                    //code for checking jump input
-                    if (Input.GetButtonDown("Jump") && !isAirborne)
+				//code for checking jump input
+				if (Input.GetButtonDown("Jump") && !isAirborne)
 				{
 					hasPressedJump = true;
 					isAirborne = true;
@@ -171,6 +169,14 @@ public class PlayerController : MonoBehaviour
 				else if (Input.GetButtonUp("Jump"))
 				{
 					hasPressedJump = false;
+				}
+
+				if (myState == PlayerState.Invincibility)
+				{
+					for (int i = initialNumberChildren; i < transform.childCount; i++)
+					{
+						Destroy(transform.GetChild(i).gameObject);
+					}
 				}
 
 				break;
@@ -182,7 +188,7 @@ public class PlayerController : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Ground") || other.gameObject.CompareTag("Shelter"))
 		{
-			PlaySound(landSounds[Random.Range(0,landSounds.Length)]);
+			PlaySound(landSounds[Random.Range(0, landSounds.Length)]);
 			isAirborne = false;
 		}
 	}
@@ -212,12 +218,12 @@ public class PlayerController : MonoBehaviour
 		myAudioSource.loop = false;
 		myAudioSource.Play();
 	}
-	
+
 	public IEnumerator Dying()
 	{
 		if (myState != PlayerState.Dying && myState != PlayerState.Invincibility)
 		{
-			PlaySound(deathSounds[Random.Range(0,deathSounds.Length)]);
+			PlaySound(deathSounds[Random.Range(0, deathSounds.Length)]);
 			myState = PlayerState.Dying;
 			mySpriteRenderer.color = deathColor;
 			yield return new WaitForSeconds(timeBeforeRespawn);
