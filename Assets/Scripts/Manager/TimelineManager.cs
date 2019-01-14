@@ -7,7 +7,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private GameObject elephantPrefab;
     [SerializeField] private GameObject horsePrefab;
-    [SerializeField] private BasicWater waterGameObject;
+    [SerializeField] private PreBasicWater waterGameObject;
 
     [SerializeField] private GameObject spawnerArrow;
     [SerializeField] private GameObject spawnerElephant;
@@ -56,6 +56,11 @@ public class TimelineManager : MonoBehaviour
     {
         GameManager.Instance.WavesCount = wavesCounts;
         UIManager.Instance.UpdateUI();
+    }
+
+    public void End()
+    {
+        GameManager.Instance.End();
     }
 
 

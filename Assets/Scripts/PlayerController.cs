@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
 
 			case PlayerState.Dying:
 			{
-			    myAnimator.speed = 0;
+			    myAnimator.SetFloat("Speed", 0);
 				break;
 			}
 
@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
 			{
 				//updates horizontal input
 				horizontalInput = Input.GetAxis("Horizontal");
-			    myAnimator.speed = Mathf.Abs( myRigidbody2D.velocity.x);
+			    myAnimator.SetFloat("Speed", Mathf.Abs( myRigidbody2D.velocity.x));
                 //flips the animator gameobject depending on direction
                 if (horizontalInput > 0)
 			    {
