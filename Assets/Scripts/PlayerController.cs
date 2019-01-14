@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
 	private bool isAirborne;
 	private Rigidbody2D myRigidbody2D;
 	private SpriteRenderer mySpriteRenderer;
-	private AudioSource myAudioSource;
+	private Animator myAnimator;
+    private AudioSource myAudioSource;
 	private float horizontalInput;
 	private float verticalInput;
 	private Vector2 respawnPosition;
@@ -72,7 +73,8 @@ public class PlayerController : MonoBehaviour
 		myRigidbody2D = GetComponent<Rigidbody2D>();
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		myAudioSource = GetComponent<AudioSource>();
-		respawnPosition = transform.position;
+		myAnimator = GetComponentInChildren<Animator>();
+	    respawnPosition = transform.position;
 		initialNumberChildren = transform.childCount;
 	}
 
@@ -112,6 +114,8 @@ public class PlayerController : MonoBehaviour
 						Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
 				}
 
+
+
 				//adjust horizontal velocity
 				myRigidbody2D.velocity = Vector2.right * speed * horizontalInput + myRigidbody2D.velocity * Vector2.up;
 				break;
@@ -138,6 +142,7 @@ public class PlayerController : MonoBehaviour
 
 			case PlayerState.Dying:
 			{
+			    myAnimator.speed = 0;
 				break;
 			}
 
@@ -145,11 +150,20 @@ public class PlayerController : MonoBehaviour
 			{
 				//updates horizontal input
 				horizontalInput = Input.GetAxis("Horizontal");
-				//flips the animator gameobject depending on direction
+			    myAnimator.speed = Mathf.Abs( myRigidbody2D.velocity.x);
+                //flips the animator gameobject depending on direction
+                if (horizontalInput > 0)
+			    {
+			        mySpriteRenderer.flipX = true;
+			    }
+			    else if (horizontalInput < 0)
+			    {
+			        mySpriteRenderer.flipX = false;
 
+                }
 
-				//code for checking jump input
-				if (Input.GetButtonDown("Jump") && !isAirborne)
+                    //code for checking jump input
+                    if (Input.GetButtonDown("Jump") && !isAirborne)
 				{
 					hasPressedJump = true;
 					isAirborne = true;

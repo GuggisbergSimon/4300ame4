@@ -7,6 +7,7 @@ public class TimelineManager : MonoBehaviour
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private GameObject elephantPrefab;
     [SerializeField] private GameObject horsePrefab;
+    [SerializeField] private BasicWater waterGameObject;
 
     [SerializeField] private GameObject spawnerArrow;
     [SerializeField] private GameObject spawnerElephant;
@@ -39,6 +40,16 @@ public class TimelineManager : MonoBehaviour
     {
         GameObject newGameObject = Instantiate(horsePrefab);
         newGameObject.GetComponent<Horse>().Speed = speed;
+    }
+
+    public void SpawnWater(float speed)
+    {
+        waterGameObject.RaiseHeightFunction(true, speed);
+    }
+
+    public void DespawnWater(float speed)
+    {
+        waterGameObject.RaiseHeightFunction(false, speed);
     }
 
     public void WavesCount(int wavesCounts)
