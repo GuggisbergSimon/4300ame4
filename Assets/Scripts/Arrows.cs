@@ -10,42 +10,54 @@ public class Arrows : MonoBehaviour
 	[SerializeField] private float speedShot = 10.0f;
 	[SerializeField] private GameObject aim = null;
 	[SerializeField] private GameObject fire = null;
-	
+	[SerializeField] private AudioClip aimingSound = null;
+	[SerializeField] private AudioClip shootingSound = null;
 	private SpriteRenderer mySpriteRenderer;
 	private Rigidbody2D myRigidBody;
 	private bool isShot = false;
 	private Collider2D myCollider;
+	private AudioSource myAudioSource;
 
 	private void Start()
 	{
 		myRigidBody = GetComponent<Rigidbody2D>();
 		myCollider = GetComponent<Collider2D>();
 		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+		myAudioSource = GetComponent<AudioSource>();
 		Invoke("Shoot", timeBeforeShot);
+		PlaySound(aimingSound);
 	}
 
 	private void Update()
 	{
 		if (!isShot)
 		{
-			//handle the
 			transform.position += Mathf.Sign((GameManager.Instance.Player.transform.position - transform.position).x) *
 			                      Vector3.right * speedAim * Time.deltaTime;
-			
 			//handle the rotation when aiming
 			Vector2 diff = transform.position - GameManager.Instance.Player.transform.position;
 			Quaternion targetRot = Quaternion.Euler(0f, 0f, Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg - 90);
 			transform.rotation =
 				Quaternion.RotateTowards(transform.rotation, targetRot, speedRotationAim * Time.deltaTime);
 		}
-		RaycastHit2D hit = Physics2D.Raycast(transform.position - transform.up.normalized * mySpriteRenderer.transform.localScale.x / 2,
+
+		RaycastHit2D hit = Physics2D.Raycast(
+			transform.position - transform.up.normalized * mySpriteRenderer.transform.localScale.x / 2,
 			-transform.up);
 		aim.transform.position = hit.point;
 		fire.transform.rotation = Quaternion.Euler(Vector3.zero);
 	}
 
+	private void PlaySound(AudioClip sound)
+	{
+		myAudioSource.clip = sound;
+		myAudioSource.loop = false;
+		myAudioSource.Play();
+	}
+	
 	private void Shoot()
 	{
+		PlaySound(shootingSound);
 		isShot = true;
 		myRigidBody.gravityScale = 1.0f;
 		myRigidBody.velocity = -transform.up * speedShot;

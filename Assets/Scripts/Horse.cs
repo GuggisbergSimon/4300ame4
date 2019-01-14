@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Horse : MonoBehaviour
 {
+    [SerializeField] private AudioClip stepSound = null;
+    [SerializeField] private AudioClip neighSound = null;
     private Animator animator;
-
+    private AudioSource myAudioSource;
     private float speed;
 
     public float Speed
@@ -18,16 +20,19 @@ public class Horse : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         animator.SetFloat("Speed", speed);
+        myAudioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void Destroy()
     {
         Destroy(gameObject);
+    }
+    
+    private void PlaySound(AudioClip sound)
+    {
+        myAudioSource.clip = sound;
+        myAudioSource.loop = false;
+        myAudioSource.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
