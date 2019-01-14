@@ -75,6 +75,10 @@ public class Arrows : MonoBehaviour
 		{
 			//do nothing, as expected
 		}
+		else if (other.CompareTag("Water"))
+		{
+			Destroy(gameObject);
+		}
 		else if (other.CompareTag("Shelter"))
 		{
 			CollisionSolidObject(other);
