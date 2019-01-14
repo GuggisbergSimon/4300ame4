@@ -763,11 +763,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CubeShadowCaster
       objectReference: {fileID: 0}
-    - target: {fileID: 8332841779458112876, guid: 6d11e92e2e0af864288aa0c793902430,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7164226476161705173, guid: 6d11e92e2e0af864288aa0c793902430,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -781,7 +776,7 @@ PrefabInstance:
     - target: {fileID: 7164226476161705173, guid: 6d11e92e2e0af864288aa0c793902430,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7164226476161705173, guid: 6d11e92e2e0af864288aa0c793902430,
         type: 3}
@@ -822,6 +817,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164226476161705173, guid: 6d11e92e2e0af864288aa0c793902430,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d11e92e2e0af864288aa0c793902430, type: 3}

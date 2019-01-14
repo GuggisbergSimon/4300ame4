@@ -130,8 +130,9 @@ MonoBehaviour:
   timeRebuild: 4
   firePrefab: {fileID: 1068940007430539507, guid: 765fc583511b5a04ebaee7fa9d8f80da,
     type: 3}
-  minNumberFire: 1
-  maxNumberFire: 5
+  minNumberFire: 3
+  maxNumberFire: 10
+  yFireOffset: -0.4
   RebuildingColor: {r: 1, g: 1, b: 1, a: 0.23529412}
 --- !u!61 &2653125817897109691
 BoxCollider2D:

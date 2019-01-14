@@ -12,6 +12,7 @@ public class Shelter : MonoBehaviour
 	[SerializeField] private GameObject firePrefab = null;
 	[SerializeField] private int minNumberFire = 1;
 	[SerializeField] private int maxNumberFire = 5;
+	[SerializeField] private float yFireOffset = -0.4f;
 	[SerializeField] private Color RebuildingColor = Color.gray;
 	private SpriteRenderer mySpriteRenderer;
 	private Collider2D myCollider;
@@ -37,7 +38,7 @@ public class Shelter : MonoBehaviour
 		{
 			Bounds myBounds = myCollider.bounds;
 			Instantiate(firePrefab,
-				new Vector2(Random.Range(myBounds.min.x, myBounds.max.x), Random.Range(myBounds.min.y, myBounds.max.y)),
+				new Vector2(Random.Range(myBounds.min.x, myBounds.max.x), Random.Range(myBounds.min.y, myBounds.max.y)+yFireOffset),
 				transform.rotation, transform);
 			yield return new WaitForSeconds(timeBetweenNewFlame);
 		}
