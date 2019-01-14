@@ -12,7 +12,7 @@ public class Shelter : MonoBehaviour
 	[SerializeField] private GameObject firePrefab = null;
 	[SerializeField] private int minNumberFire = 1;
 	[SerializeField] private int maxNumberFire = 5;
-	[SerializeField] private Color RebuildingColor=Color.gray;
+	[SerializeField] private Color RebuildingColor = Color.gray;
 	private SpriteRenderer mySpriteRenderer;
 	private Collider2D myCollider;
 	private int initialNumberChildren;

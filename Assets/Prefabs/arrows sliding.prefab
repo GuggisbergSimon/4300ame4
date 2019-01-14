@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 8622634050276281356, guid: a03d82ccaeb655b4ba005445fa630ecc,
         type: 3}
       propertyPath: m_Name
-      value: Arrows
+      value: arrows sliding
       objectReference: {fileID: 0}
     - target: {fileID: 8622634050276281352, guid: a03d82ccaeb655b4ba005445fa630ecc,
         type: 3}

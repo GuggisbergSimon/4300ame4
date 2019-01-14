@@ -38,6 +38,9 @@ public class Arrows : MonoBehaviour
 			transform.rotation =
 				Quaternion.RotateTowards(transform.rotation, targetRot, speedRotationAim * Time.deltaTime);
 		}
+		RaycastHit2D hit = Physics2D.Raycast(transform.position - transform.up.normalized * mySpriteRenderer.transform.localScale.x / 2,
+			-transform.up);
+		aim.transform.position = hit.point;
 		fire.transform.rotation = Quaternion.Euler(Vector3.zero);
 	}
 
