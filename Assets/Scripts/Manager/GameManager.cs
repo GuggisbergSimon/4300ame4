@@ -20,6 +20,14 @@ public class GameManager : MonoBehaviour
 		set => deathsPlayerCount = value;
 	}
 
+    private int wavesCount = 0;
+
+    public int WavesCount
+    {
+        get => wavesCount;
+        set => wavesCount = value;
+    }
+
 	private void OnEnable()
 	{
 		SceneManager.sceneLoaded += OnLevelFinishedLoadingScene;

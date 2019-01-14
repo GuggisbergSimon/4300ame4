@@ -41,5 +41,11 @@ public class TimelineManager : MonoBehaviour
         newGameObject.GetComponent<Horse>().Speed = speed;
     }
 
+    public void WavesCount(int wavesCounts)
+    {
+        GameManager.Instance.WavesCount = wavesCounts;
+        UIManager.Instance.UpdateUI();
+    }
+
 
 }

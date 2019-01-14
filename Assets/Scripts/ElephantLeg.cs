@@ -24,4 +24,5 @@ public class ElephantLeg : MonoBehaviour
             GameManager.Instance.Player.Die();
         }
     }
+    
 }

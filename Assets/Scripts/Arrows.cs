@@ -38,7 +38,7 @@ public class Arrows : MonoBehaviour
 				Quaternion.RotateTowards(transform.rotation, targetRot, speedRotationAim * Time.deltaTime);
 		}
 
-		RaycastHit2D hit = Physics2D.Raycast(transform.position - transform.up.normalized * mySpriteRenderer.sprite.rect.height / 2,
+		RaycastHit2D hit = Physics2D.Raycast(transform.position - transform.up.normalized * mySpriteRenderer.transform.localScale.x / 2,
 			-transform.up);
 		aim.transform.position = hit.point;
 	}
