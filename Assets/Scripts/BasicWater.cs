@@ -11,13 +11,16 @@ public class BasicWater : MonoBehaviour
 	private bool isRaising = false;
 	private float finalHeight;
 	private float finalTime;
-	
+    private Animator animator;
 	private void Start()
 	{
 		myCollider = GetComponentInChildren<BoxCollider2D>();
-		SetHeight(0.0f);
-		SetWidth(width);
-	}
+		animator = GetComponent<Animator>();
+	    //SetHeight(maxHeight);
+        //SetWidth(width);
+    }
+
+
 
 	public IEnumerator RaiseHeight(float height, float time)
 	{
@@ -44,7 +47,13 @@ public class BasicWater : MonoBehaviour
 		}
 	}
 
-	private void SetHeight(float height)
+    public void RaiseHeightFunction(bool up, float speed)
+    {
+        animator.SetBool("Water", up);
+        animator.SetFloat("speed", speed);
+    }
+
+    private void SetHeight(float height)
 	{
 		
 		sprite.transform.localScale = Vector2.right * sprite.transform.localScale + Vector2.up * height;
@@ -58,6 +67,8 @@ public class BasicWater : MonoBehaviour
 		sprite.transform.localScale = Vector2.right * width + Vector2.up * sprite.transform.localScale;
 		myCollider.size = Vector2.right * width + Vector2.up * myCollider.size;
 	}
+    
+    
 
 	private bool Contains(Bounds bounds)
 	{
@@ -68,7 +79,7 @@ public class BasicWater : MonoBehaviour
 
 	private void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.CompareTag("Player") && Contains(other.bounds))
+	    if (other.CompareTag("Player") && Contains(other.bounds))
 		{
 			GameManager.Instance.Player.Die();
 		}
