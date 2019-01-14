@@ -44,19 +44,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7304499950745802571}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5112fc022d996d45a6dd7d178088b2a, type: 3}
+  m_Script: {fileID: 11500000, guid: 19f15abc3b7c9844ebbd30b8c2cbee6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 10
-  maxHeight: 20
+  width: 2
+  maxHeight: 2
   sprite: {fileID: 7304499952072385920}
-  raisingSound: {fileID: 8300000, guid: 7a13a848c11547a45bb952985920c161, type: 3}
-  splashSound:
-  - {fileID: 8300000, guid: 9506d1e05a8d300429345fd52039e5d6, type: 3}
-  - {fileID: 8300000, guid: bdd6a4372208dbd488186495d1b1843c, type: 3}
-  - {fileID: 8300000, guid: 4b01804023c3d0d4ba783b51f3d88b74, type: 3}
-  - {fileID: 8300000, guid: 026856ee253cd4f48973460c01a3c496, type: 3}
-  - {fileID: 8300000, guid: df63a2846f774634c8a4e209449cb7e2, type: 3}
+  raisingSound: {fileID: 0}
+  splashSound: []
 --- !u!82 &7848079411976711506
 AudioSource:
   m_ObjectHideFlags: 0
@@ -68,7 +63,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243759002565353132, guid: 47cc214e460ca15488b9caea8e56a406,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7a13a848c11547a45bb952985920c161, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

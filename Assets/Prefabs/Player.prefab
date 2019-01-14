@@ -463,6 +463,7 @@ GameObject:
   - component: {fileID: 1049733434148745692}
   - component: {fileID: 1194122490}
   - component: {fileID: 1194122491}
+  - component: {fileID: 1116479740}
   m_Layer: 12
   m_Name: Player
   m_TagString: Player
@@ -593,7 +594,8 @@ AudioSource:
   m_GameObject: {fileID: 2549784006411293197}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243455994306191542, guid: 47cc214e460ca15488b9caea8e56a406,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -680,6 +682,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1116479740
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549784006411293197}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a13198d6637a1f4995471fd541e5836, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3076315108869441678
 PrefabInstance:
   m_ObjectHideFlags: 0
