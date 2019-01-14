@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 		Invincibility
 	}
 
-	private PlayerState myState;
+	private PlayerState myState = PlayerState.Dying;
 
 	private PlayerState MyState
 	{
@@ -76,6 +76,7 @@ public class PlayerController : MonoBehaviour
 		myAnimator = GetComponentInChildren<Animator>();
 		respawnPosition = transform.position;
 		initialNumberChildren = transform.childCount;
+		SetActive(false);
 	}
 
 	private void FixedUpdate()
@@ -193,7 +194,27 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	public void Setup(int initialNumberChildren)
+	public void SetActive(bool value)
+	{
+		if (value)
+		{
+			myState = PlayerState.Idle;
+			for (int i = 0; i < transform.childCount; i++)
+			{	
+				transform.GetChild(i).gameObject.SetActive(true);
+			}
+		}
+		else
+		{
+			myState = PlayerState.Dying;
+			for (int i = 0; i < transform.childCount; i++)
+			{	
+				transform.GetChild(i).gameObject.SetActive(false);
+			}
+		}
+	}
+
+	private void Setup(int initialNumberChildren)
 	{
 		myState = PlayerState.Invincibility;
 		mySpriteRenderer.color = invincibilityColor;
