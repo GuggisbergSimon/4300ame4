@@ -199,6 +199,7 @@ public class PlayerController : MonoBehaviour
 		if (value)
 		{
 			myState = PlayerState.Idle;
+			myAudioSource.enabled = true;
 			for (int i = 0; i < transform.childCount; i++)
 			{	
 				transform.GetChild(i).gameObject.SetActive(true);
@@ -207,6 +208,7 @@ public class PlayerController : MonoBehaviour
 		else
 		{
 			myState = PlayerState.Dying;
+			myAudioSource.enabled = true;
 			for (int i = 0; i < transform.childCount; i++)
 			{	
 				transform.GetChild(i).gameObject.SetActive(false);
