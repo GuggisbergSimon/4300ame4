@@ -230,6 +230,7 @@ public class PlayerController : MonoBehaviour
 
 			GameManager.Instance.DeathsPlayerCount++;
 			UIManager.Instance.UpdateUI();
+			UIManager.Instance.PlaySound(UIManager.enumSound.respawnSound);
 			this.tag = "Untagged";
 			this.gameObject.layer = layerPlayerDead;
 			GameObject newObject = Instantiate(playerPrefab, respawnPosition, transform.rotation, transform.parent);

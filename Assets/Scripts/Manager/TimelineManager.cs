@@ -56,6 +56,7 @@ public class TimelineManager : MonoBehaviour
     {
         GameManager.Instance.WavesCount = wavesCounts;
         UIManager.Instance.UpdateUI();
+        UIManager.Instance.PlaySound(UIManager.enumSound.newWaveSound);
     }
 
 
