@@ -24,7 +24,7 @@ public class SpawnControlBehavior : PlayableBehaviour
         {
             case SpawnObject.ARROW:
             {
-                timelineManager.SpawnArrow();
+                timelineManager.SpawnArrowSliding();
                 break;
             }
             case SpawnObject.ELEPHANT:
