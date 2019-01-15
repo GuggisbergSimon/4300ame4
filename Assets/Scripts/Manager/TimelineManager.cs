@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TimelineManager : MonoBehaviour
 {
-    [SerializeField] private GameObject arrowPrefab;
+    [SerializeField] private GameObject arrowSlidingPrefab;
+    [SerializeField] private GameObject arrowRotatePrefab;
     [SerializeField] private GameObject elephantPrefab;
     [SerializeField] private GameObject horsePrefab;
     [SerializeField] private BasicWater waterGameObject;
@@ -25,9 +26,14 @@ public class TimelineManager : MonoBehaviour
 
     }
 
-    public void SpawnArrow()
+    public void SpawnArrowSliding()
     {
-        GameObject newGameObject = Instantiate(arrowPrefab);
+        GameObject newGameObject = Instantiate(arrowSlidingPrefab);
+    }
+
+    public void SpawnArrowRotate()
+    {
+        GameObject newGameObject = Instantiate(arrowRotatePrefab);
     }
 
     public void SpawnElephant(float speed)
