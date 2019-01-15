@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
 
 			case PlayerState.Dying:
 			{
-			    myAnimator.SetFloat("Speed", 0);
+				myAnimator.SetFloat("Speed", 0);
 				break;
 			}
 
@@ -159,32 +159,31 @@ public class PlayerController : MonoBehaviour
 					mySpriteRenderer.flipX = true;
 				}
 				else if (horizontalInput < 0)
-			    {
-			        mySpriteRenderer.flipX = false;
-			    }
+				{
+					mySpriteRenderer.flipX = false;
+				}
 
-			    //code for checking jump input
-					if (Input.GetButtonDown("Jump") && !isAirborne)
-					{
-						hasPressedJump = true;
-						isAirborne = true;
-					}
-					else if (Input.GetButtonUp("Jump"))
-					{
-						hasPressedJump = false;
-					}
+				//code for checking jump input
+				if (Input.GetButtonDown("Jump") && !isAirborne)
+				{
+					hasPressedJump = true;
+					isAirborne = true;
+				}
+				else if (Input.GetButtonUp("Jump"))
+				{
+					hasPressedJump = false;
+				}
 
-					if (myState == PlayerState.Invincibility)
+				if (myState == PlayerState.Invincibility)
+				{
+					for (int i = initialNumberChildren; i < transform.childCount; i++)
 					{
-						for (int i = initialNumberChildren; i < transform.childCount; i++)
-						{
-							Destroy(transform.GetChild(i).gameObject);
-						}
+						Destroy(transform.GetChild(i).gameObject);
 					}
-				
+				}
+
 
 				break;
-				
 			}
 		}
 	}
@@ -222,11 +221,11 @@ public class PlayerController : MonoBehaviour
 
 	private void Setup(int initialNumberChildren)
 	{
-        SetActive(true);
+		SetActive(true);
 		myState = PlayerState.Invincibility;
 		mySpriteRenderer.color = invincibilityColor;
-	    myAnimator.SetBool("Death", false);
-        GameManager.Instance.Player = this;
+		myAnimator.SetBool("Death", false);
+		GameManager.Instance.Player = this;
 		this.tag = "Player";
 		this.gameObject.layer = layerPlayer;
 		this.initialNumberChildren = initialNumberChildren;
@@ -255,12 +254,12 @@ public class PlayerController : MonoBehaviour
 			PlaySound(deathSounds[Random.Range(0, deathSounds.Length)]);
 			myState = PlayerState.Dying;
 			mySpriteRenderer.color = deathColor;
-		    myAnimator.SetBool("Death", true);
-            yield return new WaitForSeconds(timeBeforeRespawn);
+			myAnimator.SetBool("Death", true);
+			yield return new WaitForSeconds(timeBeforeRespawn);
 
 			GameManager.Instance.DeathsPlayerCount++;
 			UIManager.Instance.UpdateUI();
-			UIManager.Instance.PlaySound(UIManager.enumSound.respawnSound);
+			UIManager.Instance.PlaySound(0, UIManager.enumSound.respawnSound);
 			this.tag = "Untagged";
 			this.gameObject.layer = layerPlayerDead;
 			GameObject newObject = Instantiate(playerPrefab, respawnPosition, transform.rotation, transform.parent);
@@ -268,7 +267,7 @@ public class PlayerController : MonoBehaviour
 			newPlayer.Setup(initialNumberChildren);
 			mySpriteRenderer.color = inactiveColor;
 			yield return new WaitForSeconds(timeInvincibility);
-            newPlayer.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+			newPlayer.GetComponentInChildren<SpriteRenderer>().color = Color.white;
 			newPlayer.myState = PlayerState.Idle;
 		}
 	}

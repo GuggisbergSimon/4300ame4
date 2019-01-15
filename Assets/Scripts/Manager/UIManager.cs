@@ -9,16 +9,17 @@ public class UIManager : MonoBehaviour
 {
 	[SerializeField] private TextMeshProUGUI deathsPlayerCounts = null;
 	[SerializeField] private TextMeshProUGUI wavesCounts = null;
-    [SerializeField] private TextMeshProUGUI scoreFinal;
-    [SerializeField] private GameObject panelEnd;
-    [SerializeField] private GameObject panelHUD;
+	[SerializeField] private TextMeshProUGUI scoreFinal = null;
+	[SerializeField] private GameObject panelEnd = null;
+	[SerializeField] private GameObject panelHUD = null;
 	[SerializeField] private AudioClip respawnSound = null;
 	[SerializeField] private AudioClip newWaveSound = null;
 	[SerializeField] private AudioClip startSound = null;
 	[SerializeField] private AudioClip selectSound = null;
+	[SerializeField] private GameObject firstSelectedButton = null;
 	private static UIManager instance;
 	public static UIManager Instance => instance;
-	private AudioSource myAudioSource;
+	private AudioSource[] myAudioSources;
 
 	public enum enumSound
 	{
@@ -39,20 +40,21 @@ public class UIManager : MonoBehaviour
 		enumSoundToAudioClip.Add(enumSound.startSound, startSound);
 		enumSoundToAudioClip.Add(enumSound.selectSound, selectSound);
 		instance = this;
-		myAudioSource = GetComponent<AudioSource>();
+		ResetSelectedPosition(firstSelectedButton);
+		myAudioSources = GetComponents<AudioSource>();
 	}
 
-	public void PlaySound(enumSound sound)
+	public void PlaySound(int index, enumSound sound)
 	{
-		myAudioSource.clip = enumSoundToAudioClip[sound];
-		myAudioSource.loop = false;
-		myAudioSource.Play();
+		myAudioSources[index].clip = enumSoundToAudioClip[sound];
+		myAudioSources[index].loop = false;
+		myAudioSources[index].Play();
 	}
 
 	public void PlaySound(string sound)
 	{
 		Enum.TryParse(sound, out enumSound mySound);
-		PlaySound(mySound);
+		PlaySound(1, mySound);
 	}
 
 	public void ResetSelectedPosition(GameObject button)
@@ -66,15 +68,15 @@ public class UIManager : MonoBehaviour
 		deathsPlayerCounts.text = deathsPlayerCounts.text.Insert(deathsPlayerCounts.text.Length,
 			GameManager.Instance.DeathsPlayerCount.ToString());
 
-	    wavesCounts.text = wavesCounts.text.Remove(wavesCounts.text.IndexOf(":") + 2);
-	    wavesCounts.text = wavesCounts.text.Insert(wavesCounts.text.Length,
-	    GameManager.Instance.WavesCount.ToString());
-    }
+		wavesCounts.text = wavesCounts.text.Remove(wavesCounts.text.IndexOf(":") + 2);
+		wavesCounts.text = wavesCounts.text.Insert(wavesCounts.text.Length,
+			GameManager.Instance.WavesCount.ToString());
+	}
 
-    public void End()
-    {
-        panelHUD.SetActive(false);
-        panelEnd.SetActive(true);
-        scoreFinal.text = "Score : " + GameManager.Instance.DeathsPlayerCount.ToString();
-    }
+	public void End()
+	{
+		panelHUD.SetActive(false);
+		panelEnd.SetActive(true);
+		scoreFinal.text = "Score : " + GameManager.Instance.DeathsPlayerCount.ToString();
+	}
 }
