@@ -62,21 +62,21 @@ AnimationClip:
     functionName: SpawnHorse
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
+    floatParameter: 0.5
     intParameter: 0
     messageOptions: 0
   - time: 6
     functionName: SpawnHorse
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
+    floatParameter: 0.5
     intParameter: 0
     messageOptions: 0
   - time: 7.016667
     functionName: SpawnHorse
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
+    floatParameter: 0.5
     intParameter: 0
     messageOptions: 0
   - time: 7.983333
@@ -90,14 +90,14 @@ AnimationClip:
     functionName: SpawnHorse
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
+    floatParameter: 1
     intParameter: 0
     messageOptions: 0
   - time: 11.483334
     functionName: SpawnHorse
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
+    floatParameter: 1
     intParameter: 0
     messageOptions: 0
   - time: 14.983334

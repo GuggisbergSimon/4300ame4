@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wave3
+  m_Name: Wave9
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -56,27 +56,83 @@ AnimationClip:
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 3
+    intParameter: 9
     messageOptions: 0
-  - time: 2
-    functionName: SpawnElephant
+  - time: 0.98333335
+    functionName: SpawnArrowRotate
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.2
+    floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 7.016667
+  - time: 1.5166667
+    functionName: SpawnArrowRotate
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2
+    functionName: SpawnArrowRotate
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.4833333
+    functionName: SpawnArrowRotate
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.9833333
+    functionName: SpawnArrowRotate
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 5.9666667
+    functionName: SpawnHorse
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 6.4666667
+    functionName: SpawnHorse
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 7.0333333
+    functionName: SpawnHorse
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 7.55
+    functionName: SpawnHorse
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 9.983334
     functionName: SpawnElephant
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0.5
     intParameter: 0
     messageOptions: 0
-  - time: 10.016666
+  - time: 11
     functionName: SpawnElephant
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.2
+    floatParameter: 0.5
     intParameter: 0
     messageOptions: 0
   - time: 15.016666

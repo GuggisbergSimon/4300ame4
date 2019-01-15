@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Wave0
+  m_Name: Wave6
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -31,7 +31,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 10.016666
+    m_StopTime: 15.05
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -52,27 +52,62 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
+    functionName: WavesCount
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 6
+    messageOptions: 0
+  - time: 1
     functionName: SpawnElephant
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0.2
     intParameter: 0
     messageOptions: 0
-  - time: 1
-    functionName: SpawnWater
+  - time: 1.9833333
+    functionName: SpawnHorse
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0.5
     intParameter: 0
     messageOptions: 0
-  - time: 8
-    functionName: DespawnWater
+  - time: 3
+    functionName: SpawnHorse
     data: 
     objectReferenceParameter: {fileID: 0}
-    floatParameter: 1
+    floatParameter: 0.5
     intParameter: 0
     messageOptions: 0
-  - time: 10.016666
+  - time: 5.983333
+    functionName: SpawnElephant
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.5
+    intParameter: 0
+    messageOptions: 0
+  - time: 9.016666
+    functionName: SpawnElephant
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.5
+    intParameter: 0
+    messageOptions: 0
+  - time: 12
+    functionName: SpawnHorse
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.5
+    intParameter: 0
+    messageOptions: 0
+  - time: 13.016666
+    functionName: SpawnHorse
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0.5
+    intParameter: 0
+    messageOptions: 0
+  - time: 15.05
     functionName: SpawnArrowSliding
     data: 
     objectReferenceParameter: {fileID: 0}

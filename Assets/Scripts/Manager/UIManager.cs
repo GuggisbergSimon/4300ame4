@@ -17,7 +17,8 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private AudioClip startSound = null;
 	[SerializeField] private AudioClip selectSound = null;
 	[SerializeField] private GameObject firstSelectedButton = null;
-	private static UIManager instance;
+	[SerializeField] private GameObject endSelectedButton = null;
+    private static UIManager instance;
 	public static UIManager Instance => instance;
 	private AudioSource[] myAudioSources;
 
@@ -82,5 +83,6 @@ public class UIManager : MonoBehaviour
 		panelHUD.SetActive(false);
 		panelEnd.SetActive(true);
 		scoreFinal.text = "Deaths : " + GameManager.Instance.DeathsPlayerCount.ToString();
+        ResetSelectedPosition(endSelectedButton);
 	}
 }
