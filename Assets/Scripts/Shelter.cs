@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Shelter : MonoBehaviour
 {
@@ -16,15 +17,15 @@ public class Shelter : MonoBehaviour
 	[SerializeField] private Color RebuildingColor = Color.gray;
 	[SerializeField] private AudioClip burningSound = null;
 	[SerializeField] private AudioClip crackingSound = null;
-	private SpriteRenderer mySpriteRenderer;
+	private TilemapRenderer myTileMapRenderer;
 	private Collider2D myCollider;
 	private AudioSource[] myAudioSources;
 	private int initialNumberChildren;
 
 	private void Start()
 	{
-		mySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
-		myCollider = GetComponent<Collider2D>();
+		myTileMapRenderer = GetComponentInChildren<TilemapRenderer>();
+		myCollider = GetComponentInChildren<Collider2D>();
 		myAudioSources = GetComponents<AudioSource>();
 		initialNumberChildren = transform.childCount;
 	}
@@ -76,8 +77,8 @@ public class Shelter : MonoBehaviour
 		}
 
 		yield return new WaitForSeconds(timeNoRebuild);
-		mySpriteRenderer.gameObject.SetActive(true);
-		mySpriteRenderer.color = RebuildingColor;
+		myTileMapRenderer.gameObject.SetActive(true);
+		//myTileMapRenderer.color = RebuildingColor;
 		yield return new WaitForSeconds(timeRebuild);
 		Build();
 	}
@@ -85,8 +86,8 @@ public class Shelter : MonoBehaviour
 	private void Build()
 	{
 		myCollider.enabled = true;
-		mySpriteRenderer.enabled = true;
-		mySpriteRenderer.color = Color.white;
+		myTileMapRenderer.enabled = true;
+		//myTileMapRenderer.color = Color.white;
 		for (int i = 0; i < initialNumberChildren; i++)
 		{
 			transform.GetChild(i).gameObject.SetActive(true);
