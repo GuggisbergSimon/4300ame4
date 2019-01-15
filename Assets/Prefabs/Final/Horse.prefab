@@ -826,8 +826,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ae0008c349eb2428722fb393cf1ff8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepSound: {fileID: 0}
-  neighSound: {fileID: 0}
+  gallopSound: {fileID: 8300000, guid: 33dc8cf707951da4aaeba8b8115e8ebc, type: 3}
+  neighSound:
+  - {fileID: 8300000, guid: 14f7c1fc49bdb0345b44ebf6cab290cf, type: 3}
+  - {fileID: 8300000, guid: 123f7f79097d1e74098774377788f578, type: 3}
+  - {fileID: 8300000, guid: 87a6671d292c51048afab24d39229924, type: 3}
 --- !u!70 &2630256712873156073
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

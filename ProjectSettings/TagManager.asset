@@ -9,6 +9,7 @@ TagManager:
   - Elephant
   - Arrow
   - HeadPlayer
+  - Water
   layers:
   - Default
   - TransparentFX
