@@ -21,7 +21,6 @@ public class BasicWater : MonoBehaviour
 		SetHeight(0.0f);
 		SetWidth(width);
 		myAudioSources = GetComponents<AudioSource>();
-		//RaiseHeightFunction(false, 1);
 	}
 
 	private void PlaySound(int index, AudioClip sound, bool loop)

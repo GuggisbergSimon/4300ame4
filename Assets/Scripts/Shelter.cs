@@ -62,6 +62,7 @@ public class Shelter : MonoBehaviour
 		{
 			myAudioSource.Stop();
 		}
+
 		myCollider.enabled = false;
 
 		for (int i = 0; i < initialNumberChildren; i++)

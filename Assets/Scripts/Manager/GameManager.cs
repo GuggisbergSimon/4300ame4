@@ -84,7 +84,6 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.End();
     }
 
-
 	public void QuitGame()
 	{
 #if UNITY_EDITOR

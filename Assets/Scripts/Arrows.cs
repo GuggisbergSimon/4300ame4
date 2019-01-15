@@ -11,7 +11,7 @@ public class Arrows : MonoBehaviour
 	[SerializeField] private GameObject aim = null;
 	[SerializeField] private GameObject fire = null;
 	[SerializeField] private AudioClip releaseSound = null;
-	[SerializeField] private AudioClip aimingSound = null;
+	//[SerializeField] private AudioClip aimingSound = null;
 	[SerializeField] private AudioClip[] shootingSounds = null;
 	private SpriteRenderer mySpriteRenderer;
 	private Rigidbody2D myRigidBody;
@@ -74,6 +74,10 @@ public class Arrows : MonoBehaviour
 		else if (other.CompareTag("Arrow"))
 		{
 			//do nothing, as expected
+		}
+		else if (other.CompareTag("Water"))
+		{
+			Destroy(gameObject);
 		}
 		else if (other.CompareTag("Shelter"))
 		{
