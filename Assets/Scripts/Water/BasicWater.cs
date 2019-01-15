@@ -73,7 +73,7 @@ public class BasicWater : MonoBehaviour
             {
                 yield return new WaitForEndOfFrame();
                 timer += Time.deltaTime;
-                SetHeight(maxHeight/timer / time);
+                SetHeight(maxHeight - maxHeight* timer / time);
             }
 
             SetHeight(height);
