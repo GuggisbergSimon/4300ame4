@@ -159,10 +159,11 @@ public class PlayerController : MonoBehaviour
 					mySpriteRenderer.flipX = true;
 				}
 				else if (horizontalInput < 0)
-				{
-					mySpriteRenderer.flipX = false;
+			    {
+			        mySpriteRenderer.flipX = false;
+			    }
 
-					//code for checking jump input
+			    //code for checking jump input
 					if (Input.GetButtonDown("Jump") && !isAirborne)
 					{
 						hasPressedJump = true;
@@ -180,7 +181,7 @@ public class PlayerController : MonoBehaviour
 							Destroy(transform.GetChild(i).gameObject);
 						}
 					}
-				}
+				
 
 				break;
 				
@@ -221,6 +222,7 @@ public class PlayerController : MonoBehaviour
 
 	private void Setup(int initialNumberChildren)
 	{
+        SetActive(true);
 		myState = PlayerState.Invincibility;
 		mySpriteRenderer.color = invincibilityColor;
 	    myAnimator.SetBool("Death", false);
@@ -266,7 +268,7 @@ public class PlayerController : MonoBehaviour
 			newPlayer.Setup(initialNumberChildren);
 			mySpriteRenderer.color = inactiveColor;
 			yield return new WaitForSeconds(timeInvincibility);
-			newPlayer.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+            newPlayer.GetComponentInChildren<SpriteRenderer>().color = Color.white;
 			newPlayer.myState = PlayerState.Idle;
 		}
 	}
