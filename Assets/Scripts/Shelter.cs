@@ -18,14 +18,14 @@ public class Shelter : MonoBehaviour
 	[SerializeField] private AudioClip burningSound = null;
 	[SerializeField] private AudioClip crackingSound = null;
 	private TilemapRenderer myTileMapRenderer;
-	private Collider2D myCollider;
+	private CompositeCollider2D myCollider;
 	private AudioSource[] myAudioSources;
 	private int initialNumberChildren;
 
 	private void Start()
 	{
 		myTileMapRenderer = GetComponentInChildren<TilemapRenderer>();
-		myCollider = GetComponentInChildren<Collider2D>();
+		myCollider = GetComponentInChildren<CompositeCollider2D>();
 		myAudioSources = GetComponents<AudioSource>();
 		initialNumberChildren = transform.childCount;
 	}
