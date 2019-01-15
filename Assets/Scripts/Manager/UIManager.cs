@@ -40,11 +40,15 @@ public class UIManager : MonoBehaviour
 		enumSoundToAudioClip.Add(enumSound.startSound, startSound);
 		enumSoundToAudioClip.Add(enumSound.selectSound, selectSound);
 		instance = this;
-		ResetSelectedPosition(firstSelectedButton);
 		myAudioSources = GetComponents<AudioSource>();
 	}
 
-	public void PlaySound(int index, enumSound sound)
+	private void Start()
+	{
+		ResetSelectedPosition(firstSelectedButton);
+	}
+
+	public void PlaySoundByEnum(int index, enumSound sound)
 	{
 		myAudioSources[index].clip = enumSoundToAudioClip[sound];
 		myAudioSources[index].loop = false;
@@ -54,7 +58,7 @@ public class UIManager : MonoBehaviour
 	public void PlaySound(string sound)
 	{
 		Enum.TryParse(sound, out enumSound mySound);
-		PlaySound(1, mySound);
+		PlaySoundByEnum(0, mySound);
 	}
 
 	public void ResetSelectedPosition(GameObject button)
@@ -77,6 +81,6 @@ public class UIManager : MonoBehaviour
 	{
 		panelHUD.SetActive(false);
 		panelEnd.SetActive(true);
-		scoreFinal.text = "Score : " + GameManager.Instance.DeathsPlayerCount.ToString();
+		scoreFinal.text = "Deaths : " + GameManager.Instance.DeathsPlayerCount.ToString();
 	}
 }

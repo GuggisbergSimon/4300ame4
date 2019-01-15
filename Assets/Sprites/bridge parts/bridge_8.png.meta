@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e041c76e049269a4cb744e57f20dbc44
+guid: 25b54cb37904f83438285b89b005db7b
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -31,26 +31,26 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: -1
     aniso: -1
     mipBias: -100
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1024
-  spriteBorder: {x: 81, y: 278, z: 144, w: 496}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -60,7 +60,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -71,7 +71,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -81,19 +81,8 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-  - serializedVersion: 2
     buildTarget: WebGL
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -105,26 +94,10 @@ TextureImporter:
   spriteSheet:
     serializedVersion: 2
     sprites: []
-    outline:
-    - - {x: -418, y: -61}
-      - {x: -450, y: -102}
-      - {x: -450, y: -155}
-      - {x: -381, y: -216}
-      - {x: -29, y: -237}
-      - {x: 393, y: -237}
-      - {x: 393, y: -11}
-      - {x: 391, y: 3}
-    - - {x: -425, y: -85}
-      - {x: -443, y: -102}
-      - {x: -444, y: -106}
-      - {x: -444, y: -109}
-      - {x: -432, y: -109}
-      - {x: -408, y: -98}
-      - {x: -408, y: -81}
-      - {x: -411, y: -81}
+    outline: []
     physicsShape: []
     bones: []
-    spriteID: 47fe5cc46324d6f4abc30da10dc59668
+    spriteID: 7719f242b1b449d4a89e33756e8fda74
     vertices: []
     indices: 
     edges: []
