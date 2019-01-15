@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Luca copy for Simon.unity
-    guid: 4fae6553082253e45a9b3a70adfae99e
+    path: Assets/Scenes/Luca.unity
+    guid: e7346388928914240acdb3b1b8e9aced
   m_configObjects: {}
