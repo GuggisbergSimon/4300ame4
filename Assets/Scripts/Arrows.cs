@@ -82,7 +82,7 @@ public class Arrows : MonoBehaviour
 		else if (other.CompareTag("Shelter"))
 		{
 			CollisionSolidObject(other);
-			other.GetComponent<Shelter>().Burn();
+			other.GetComponentInParent<Shelter>().Burn();
 		}
 		else
 		{
