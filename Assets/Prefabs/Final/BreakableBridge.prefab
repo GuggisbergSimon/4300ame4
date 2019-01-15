@@ -1,32 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &7461870656890211402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9101027151154006345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfa18850f81508c4f8bd31850bbe7b75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spritesDestroyed:
-  - {fileID: 21300000, guid: 28dfceace09af1f4595903c423f6f6b8, type: 3}
-  - {fileID: 21300000, guid: f2ad70f2a90e3454bb0e4cb542060b65, type: 3}
-  - {fileID: 21300000, guid: 4c20a33a32d801649a037cf243c40325, type: 3}
-  - {fileID: 21300000, guid: dce3f8db02fd7d8488b8e7022b5e8188, type: 3}
-  destroyedPartPrefab: {fileID: 5723879312945162309, guid: 8776750a0f6797048a5b26f89e4cc367,
-    type: 3}
-  cubeShadowCasterPrefab: {fileID: 8332841779458112876, guid: 6d11e92e2e0af864288aa0c793902430,
-    type: 3}
-  layerDestroyedPart: 11
-  enableRandomnessForDestroying: 1
-  minVelocityRandom: -15
-  maxVelocityRandom: 15
-  destroyedColor: {r: 1, g: 1, b: 1, a: 0.23529412}
-  destructionSound: {fileID: 8300000, guid: 2fe54b9e3a9d2b649971998aa3516beb, type: 3}
 --- !u!82 &5144833002229854219
 AudioSource:
   m_ObjectHideFlags: 0
@@ -124,6 +97,46 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7461870656890211402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9101027151154006345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfa18850f81508c4f8bd31850bbe7b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spritesDestroyed:
+  - {fileID: 21300000, guid: e8d6f580edd124441a9961260b0b9570, type: 3}
+  - {fileID: 21300000, guid: 1bad4d6568750704680b9795bdf9c2fb, type: 3}
+  - {fileID: 21300000, guid: 205851f1ee492ee44b1a1d454f67660b, type: 3}
+  - {fileID: 21300000, guid: 3a2dbd731acdef64bb5d1a4281691ebe, type: 3}
+  - {fileID: 21300000, guid: beac8f7dc418c9a4ba3b75beabc7323b, type: 3}
+  - {fileID: 21300000, guid: 8b87b780036ce1744a947f4ad7173652, type: 3}
+  - {fileID: 21300000, guid: a6ef2ce3a5cc7524abd3052f1fe1e595, type: 3}
+  - {fileID: 21300000, guid: 25b54cb37904f83438285b89b005db7b, type: 3}
+  - {fileID: 21300000, guid: 51b5ec09e5857d4448af06449133c7d4, type: 3}
+  - {fileID: 21300000, guid: ea3b55436f2a1fd40b345d0e55a1e89b, type: 3}
+  - {fileID: 21300000, guid: b045b14590b88a840b8682046cd2f0ae, type: 3}
+  - {fileID: 21300000, guid: 67e3dae5a4c11b14ba50024e6b021060, type: 3}
+  - {fileID: 21300000, guid: a9c1e18e210d410479acae725ff63327, type: 3}
+  - {fileID: 21300000, guid: ddefe6948b3215648933a7371b77e838, type: 3}
+  - {fileID: 21300000, guid: 9b08a482f63d08b448671f5dd0ebe81e, type: 3}
+  - {fileID: 21300000, guid: 135d7ae50b3b1f8409cb6be6fe5e0e3d, type: 3}
+  - {fileID: 21300000, guid: 6c7dd00ebcd13344c8a3ba84dd8d1d65, type: 3}
+  destroyedPartPrefab: {fileID: 5723879312945162309, guid: 8776750a0f6797048a5b26f89e4cc367,
+    type: 3}
+  cubeShadowCasterPrefab: {fileID: 8332841779458112876, guid: 6d11e92e2e0af864288aa0c793902430,
+    type: 3}
+  layerDestroyedPart: 11
+  enableRandomnessForDestroying: 1
+  minVelocityRandom: -15
+  maxVelocityRandom: 15
+  destroyedColor: {r: 1, g: 1, b: 1, a: 0.23529412}
+  destructionSound: {fileID: 8300000, guid: 2fe54b9e3a9d2b649971998aa3516beb, type: 3}
 --- !u!1001 &4705267041175278616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -144,7 +157,7 @@ PrefabInstance:
     - target: {fileID: 7164226476161705173, guid: 6d11e92e2e0af864288aa0c793902430,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.15
       objectReference: {fileID: 0}
     - target: {fileID: 7164226476161705173, guid: 6d11e92e2e0af864288aa0c793902430,
         type: 3}
@@ -194,12 +207,12 @@ PrefabInstance:
     - target: {fileID: 7164226476161705173, guid: 6d11e92e2e0af864288aa0c793902430,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 5.1
       objectReference: {fileID: 0}
     - target: {fileID: 7164226476161705173, guid: 6d11e92e2e0af864288aa0c793902430,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.5
+      value: 0.82
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d11e92e2e0af864288aa0c793902430, type: 3}
@@ -278,12 +291,22 @@ PrefabInstance:
     - target: {fileID: 6956270064649472661, guid: b6444c1baccff7546b06cde23648fd0b,
         type: 3}
       propertyPath: m_Size.x
-      value: 5
+      value: 5.1
       objectReference: {fileID: 0}
     - target: {fileID: 6956270064649472661, guid: b6444c1baccff7546b06cde23648fd0b,
         type: 3}
       propertyPath: m_Size.y
-      value: 2.5
+      value: 0.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956270064649472661, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6956270064649472661, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 2.15
       objectReference: {fileID: 0}
     - target: {fileID: 7402176603941459745, guid: b6444c1baccff7546b06cde23648fd0b,
         type: 3}
@@ -294,8 +317,23 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 11e92df1bdeae404dac644c94adb8028,
+      objectReference: {fileID: 21300000, guid: 3ba6819f393be474fa0934e3860f70ba,
         type: 3}
+    - target: {fileID: 4808202627069798393, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1637688737
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808202627069798393, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4808202627069798393, guid: b6444c1baccff7546b06cde23648fd0b,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b6444c1baccff7546b06cde23648fd0b, type: 3}
 --- !u!1 &9101027151154006345 stripped

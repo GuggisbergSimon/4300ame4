@@ -180,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161319523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -10, z: 0}
+  m_LocalPosition: {x: 0, y: -1.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 694449753}
@@ -393,7 +393,6 @@ MonoBehaviour:
   aim: {fileID: 1161319523}
   fire: {fileID: 5243340432395617852}
   releaseSound: {fileID: 8300000, guid: bd4b52f526f7a8b449f8713ac3bac8a2, type: 3}
-  aimingSound: {fileID: 0}
   shootingSounds:
   - {fileID: 8300000, guid: 2b7225cfd13a92f4aa1c31500fb67536, type: 3}
   - {fileID: 8300000, guid: 1a84bca6ea5c1cb4aa08409a43db8b2f, type: 3}
