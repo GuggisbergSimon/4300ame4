@@ -156,15 +156,16 @@ public class PlayerController : MonoBehaviour
 				//flips the animator gameobject depending on direction
 				if (horizontalInput > 0)
 				{
-					mySpriteRenderer.flipX = true;
-				}
+                    transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        		}
 				else if (horizontalInput < 0)
 				{
-					mySpriteRenderer.flipX = false;
-				}
+				    transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
 
-				//code for checking jump input
-				if (Input.GetButtonDown("Jump") && !isAirborne)
+                }
+
+                    //code for checking jump input
+                    if (Input.GetButtonDown("Jump") && !isAirborne)
 				{
 					hasPressedJump = true;
 					isAirborne = true;
