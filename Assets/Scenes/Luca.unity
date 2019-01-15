@@ -1726,18 +1726,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7834342367451733419, guid: d88ff34ed4a2c9c42a9e4be224345787,
-        type: 3}
-      propertyPath: m_TagString
-      value: Shelter
-      objectReference: {fileID: 0}
     - target: {fileID: 187043907395323654, guid: d88ff34ed4a2c9c42a9e4be224345787,
         type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 7834342367451733419, guid: d88ff34ed4a2c9c42a9e4be224345787,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shelter
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d88ff34ed4a2c9c42a9e4be224345787, type: 3}
+--- !u!84 &791073408
+RenderTexture:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpriteLightKit RT
+  m_ImageContentsHash:
+    serializedVersion: 2
+    Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
+  m_Width: 1984
+  m_Height: 1116
+  m_AntiAliasing: 1
+  m_DepthFormat: 0
+  m_ColorFormat: 7
+  m_MipMap: 0
+  m_GenerateMips: 1
+  m_SRGB: 0
+  m_UseDynamicScale: 0
+  m_BindMS: 0
+  m_TextureSettings:
+    serializedVersion: 2
+    m_FilterMode: 0
+    m_Aniso: 1
+    m_MipBias: 0
+    m_WrapU: 1
+    m_WrapV: 1
+    m_WrapW: 1
+  m_Dimension: 2
+  m_VolumeDepth: 1
 --- !u!1001 &933575886
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2134,16 +2166,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7834342367451733419, guid: d88ff34ed4a2c9c42a9e4be224345787,
-        type: 3}
-      propertyPath: m_TagString
-      value: Shelter
-      objectReference: {fileID: 0}
-    - target: {fileID: 187043907395323654, guid: d88ff34ed4a2c9c42a9e4be224345787,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 4478977938724510098, guid: d88ff34ed4a2c9c42a9e4be224345787,
         type: 3}
       propertyPath: m_LocalRotation.z
@@ -2176,6 +2198,11 @@ PrefabInstance:
     - target: {fileID: 1674118547, guid: d88ff34ed4a2c9c42a9e4be224345787, type: 3}
       propertyPath: m_LocalScale.x
       value: 8.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 187043907395323654, guid: d88ff34ed4a2c9c42a9e4be224345787,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4849092985434555726, guid: d88ff34ed4a2c9c42a9e4be224345787,
         type: 3}
@@ -2907,6 +2934,11 @@ PrefabInstance:
       propertyPath: m_CompositePaths.m_Paths.Array.data[0].Array.data[35].y
       value: -2.0118043
       objectReference: {fileID: 0}
+    - target: {fileID: 7834342367451733419, guid: d88ff34ed4a2c9c42a9e4be224345787,
+        type: 3}
+      propertyPath: m_TagString
+      value: Shelter
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d88ff34ed4a2c9c42a9e4be224345787, type: 3}
 --- !u!4 &1193731727 stripped
@@ -3142,11 +3174,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid
       objectReference: {fileID: 0}
-    - target: {fileID: 1351692105093818960, guid: ba759ed4e77c003418b8012c76a2c030,
-        type: 3}
-      propertyPath: m_TagString
-      value: Ground
-      objectReference: {fileID: 0}
     - target: {fileID: 1351692103810459880, guid: ba759ed4e77c003418b8012c76a2c030,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3201,6 +3228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351692105093818960, guid: ba759ed4e77c003418b8012c76a2c030,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 1351692105093818961, guid: ba759ed4e77c003418b8012c76a2c030,
         type: 3}
