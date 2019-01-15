@@ -215,13 +215,13 @@ MonoBehaviour:
   speed: 7.12
   climbingSpeed: 2
   timeBeforeRespawn: 1
-  timeInvincibility: 1.5
+  timeInvincibility: 2.5
   playerPrefab: {fileID: 2549784006411293197}
   layerPlayer: 12
   layerPlayerDead: 11
   deathColor: {r: 1, g: 0, b: 0, a: 0.49019608}
-  inactiveColor: {r: 1, g: 1, b: 1, a: 0.23529412}
-  invincibilityColor: {r: 1, g: 1, b: 1, a: 0.49019608}
+  inactiveColor: {r: 1, g: 0, b: 0, a: 0.6627451}
+  invincibilityColor: {r: 1, g: 1, b: 1, a: 0.57254905}
   deathSounds:
   - {fileID: 8300000, guid: 52087ed0b7f9f0c45b98cb886370ed8e, type: 3}
   - {fileID: 8300000, guid: 55e4c71fb6d37354fa69ccfd8e9f73e2, type: 3}
@@ -231,7 +231,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 26ab86768a3575f4baa202d6bea7a858, type: 3}
   - {fileID: 8300000, guid: 514797314482cb84fbb90279c8a10005, type: 3}
   - {fileID: 8300000, guid: 78533dde3f17421458215c36c7ea03a7, type: 3}
-  walkSound: {fileID: 0}
 --- !u!50 &6721028352712480029
 Rigidbody2D:
   serializedVersion: 4
