@@ -58,71 +58,71 @@ AnimationClip:
     floatParameter: 0
     intParameter: 4
     messageOptions: 0
-  - time: 2
-    functionName: SpawnHorse
+  - time: 0.98333335
+    functionName: SpawnWater
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 1
     intParameter: 0
     messageOptions: 0
-  - time: 2.4833333
-    functionName: SpawnArrow
+  - time: 1.9666667
+    functionName: SpawnArrowSliding
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 3.0166667
-    functionName: SpawnHorse
+  - time: 5.05
+    functionName: SpawnArrowRotate
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 5.9333334
+    functionName: SpawnArrowRotate
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 9
+    functionName: SpawnArrowSliding
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 9.516666
+    functionName: SpawnArrowSliding
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 9.95
+    functionName: SpawnArrowSliding
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 12.016666
+    functionName: DespawnWater
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 1
     intParameter: 0
     messageOptions: 0
-  - time: 3.5166667
-    functionName: SpawnArrow
+  - time: 13.316667
+    functionName: SpawnArrowRotate
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 3.9833333
-    functionName: SpawnHorse
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 1
-    intParameter: 0
-    messageOptions: 0
-  - time: 4.5
-    functionName: SpawnArrow
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 8
-    functionName: SpawnElephant
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.5
-    intParameter: 0
-    messageOptions: 0
-  - time: 10.033334
-    functionName: SpawnElephant
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.5
-    intParameter: 0
-    messageOptions: 0
-  - time: 10.983334
-    functionName: SpawnHorse
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0.5
     intParameter: 0
     messageOptions: 0
   - time: 15
-    functionName: SpawnArrow
+    functionName: SpawnArrowSliding
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

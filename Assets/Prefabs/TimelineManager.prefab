@@ -77,7 +77,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5260179165745329358
 Transform:
   m_ObjectHideFlags: 0
@@ -107,7 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bff8c1054d9644468d5b031bde0487f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowPrefab: {fileID: 8622634050276281356, guid: a03d82ccaeb655b4ba005445fa630ecc,
+  arrowSlidingPrefab: {fileID: 1271937127937331904, guid: 47fca0489e45a644abadb8f3fc77a481,
+    type: 3}
+  arrowRotatePrefab: {fileID: 8622634050276281356, guid: a03d82ccaeb655b4ba005445fa630ecc,
     type: 3}
   elephantPrefab: {fileID: 6242606852005057372, guid: a7c2556a9d2127d49836f524a59076c6,
     type: 3}

@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
     public void End()
     {
         UIManager.Instance.End();
+        player.SetActive(false);
     }
 
 	public void QuitGame()
