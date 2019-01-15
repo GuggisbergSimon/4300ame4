@@ -370,9 +370,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1637688737
+  m_SortingLayer: 2
+  m_SortingOrder: -10
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.012000024, y: 0.012000024, z: 0}
   m_MaxChunkCount: 16
@@ -455,20 +455,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 4633395353962571709}
     m_ColliderPaths:
-    - - X: -240119984
+    - - X: 149880000
         Y: -20120000
-      - X: -149880000
+      - X: 240119984
         Y: -20120000
-      - X: -149880000
+      - X: 240119984
         Y: -9879999
-      - X: -240119984
+      - X: 149880000
         Y: -9879999
   m_CompositePaths:
     m_Paths:
-    - - {x: -14.988, y: -0.9879999}
-      - {x: -24.012, y: -0.9879999}
-      - {x: -24.012, y: -2.012}
-      - {x: -14.988, y: -2.012}
+    - - {x: 24.012, y: -0.9879999}
+      - {x: 14.988, y: -0.9879999}
+      - {x: 14.988, y: -2.012}
+      - {x: 24.012, y: -2.012}
   m_VertexDistance: 0.0005
 --- !u!1 &1109379077804867264
 GameObject:
@@ -498,7 +498,7 @@ Transform:
   m_GameObject: {fileID: 1109379077804867264}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -6.15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
   - {fileID: 2596280515957402228}
   - {fileID: 5763048}
@@ -1221,9 +1221,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1637688737
+  m_SortingLayer: 2
+  m_SortingOrder: -10
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.012000024, y: 0.012000024, z: 0}
   m_MaxChunkCount: 16
@@ -1306,18 +1306,18 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 4572873812181293280}
     m_ColliderPaths:
-    - - X: -240119984
+    - - X: 149880000
         Y: -20120000
-      - X: -149880000
+      - X: 240119984
         Y: -20120000
-      - X: -149880000
+      - X: 240119984
         Y: -9879999
-      - X: -240119984
+      - X: 149880000
         Y: -9879999
   m_CompositePaths:
     m_Paths:
-    - - {x: -14.988, y: -0.9879999}
-      - {x: -24.012, y: -0.9879999}
-      - {x: -24.012, y: -2.012}
-      - {x: -14.988, y: -2.012}
+    - - {x: 24.012, y: -0.9879999}
+      - {x: 14.988, y: -0.9879999}
+      - {x: 14.988, y: -2.012}
+      - {x: 24.012, y: -2.012}
   m_VertexDistance: 0.0005
