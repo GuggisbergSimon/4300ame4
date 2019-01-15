@@ -57,7 +57,34 @@ public class BasicWater : MonoBehaviour
 		}
 	}
 
-	public void RaiseHeightFunction(bool raise, float speed)
+    public IEnumerator LowerHeight(float height, float time)
+    {
+        if (!isRaising)
+        {
+            PlaySound(0, raisingSound, true);
+            if (height < 0)
+            {
+                height  = 0;
+            }
+
+            float timer = 0.0f;
+            while (timer < time)
+            {
+                yield return new WaitForEndOfFrame();
+                timer += Time.deltaTime;
+                SetHeight(maxHeight - maxHeight* timer / time);
+            }
+
+            SetHeight(height);
+            myAudioSources[0].Stop();
+        }
+        else
+        {
+            yield return null;
+        }
+    }
+
+    public void RaiseHeightFunction(bool raise, float speed)
 	{
 		if (raise)
 		{
@@ -65,7 +92,7 @@ public class BasicWater : MonoBehaviour
 		}
 		else
 		{
-			StartCoroutine(RaiseHeight(0, maxHeight / speed));
+			StartCoroutine(LowerHeight(0, maxHeight / speed));
 		}
 	}
 

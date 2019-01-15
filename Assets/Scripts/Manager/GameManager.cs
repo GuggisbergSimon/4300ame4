@@ -79,6 +79,11 @@ public class GameManager : MonoBehaviour
 		SceneManager.LoadScene(nameLevel);
 	}
 
+    public void End()
+    {
+        UIManager.Instance.End();
+    }
+
 	public void QuitGame()
 	{
 #if UNITY_EDITOR

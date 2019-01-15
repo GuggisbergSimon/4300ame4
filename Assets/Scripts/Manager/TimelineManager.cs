@@ -59,5 +59,10 @@ public class TimelineManager : MonoBehaviour
         UIManager.Instance.PlaySound(UIManager.enumSound.newWaveSound);
     }
 
+    public void End()
+    {
+        GameManager.Instance.End();
+    }
+
 
 }

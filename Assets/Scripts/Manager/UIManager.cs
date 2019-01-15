@@ -9,6 +9,9 @@ public class UIManager : MonoBehaviour
 {
 	[SerializeField] private TextMeshProUGUI deathsPlayerCounts = null;
 	[SerializeField] private TextMeshProUGUI wavesCounts = null;
+    [SerializeField] private TextMeshProUGUI scoreFinal;
+    [SerializeField] private GameObject panelEnd;
+    [SerializeField] private GameObject panelHUD;
 	[SerializeField] private AudioClip respawnSound = null;
 	[SerializeField] private AudioClip newWaveSound = null;
 	[SerializeField] private AudioClip startSound = null;
@@ -63,8 +66,15 @@ public class UIManager : MonoBehaviour
 		deathsPlayerCounts.text = deathsPlayerCounts.text.Insert(deathsPlayerCounts.text.Length,
 			GameManager.Instance.DeathsPlayerCount.ToString());
 
-		wavesCounts.text = wavesCounts.text.Remove(wavesCounts.text.IndexOf(":") + 2);
-		wavesCounts.text = wavesCounts.text.Insert(wavesCounts.text.Length,
-			GameManager.Instance.WavesCount.ToString());
-	}
+	    wavesCounts.text = wavesCounts.text.Remove(wavesCounts.text.IndexOf(":") + 2);
+	    wavesCounts.text = wavesCounts.text.Insert(wavesCounts.text.Length,
+	    GameManager.Instance.WavesCount.ToString());
+    }
+
+    public void End()
+    {
+        panelHUD.SetActive(false);
+        panelEnd.SetActive(true);
+        scoreFinal.text = "Score : " + GameManager.Instance.DeathsPlayerCount.ToString();
+    }
 }

@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private int layerPlayer = 0;
 	[SerializeField] private int layerPlayerDead = 0;
 	[SerializeField] private Color deathColor = Color.red;
-	[SerializeField] private Color inactiveColor = Color.gray;
+	[SerializeField] private Color inactiveColor = Color.red;
 	[SerializeField] private Color invincibilityColor = Color.gray;
 	[SerializeField] private AudioClip[] deathSounds = null;
 	[SerializeField] private AudioClip jumpSound = null;
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
 
 			case PlayerState.Dying:
 			{
-				myAnimator.speed = 0;
+			    myAnimator.SetFloat("Speed", 0);
 				break;
 			}
 
@@ -152,37 +152,39 @@ public class PlayerController : MonoBehaviour
 			{
 				//updates horizontal input
 				horizontalInput = Input.GetAxis("Horizontal");
-				myAnimator.speed = Mathf.Abs(myRigidbody2D.velocity.x);
+				myAnimator.SetFloat("Speed", Mathf.Abs(myRigidbody2D.velocity.x));
 				//flips the animator gameobject depending on direction
 				if (horizontalInput > 0)
 				{
 					mySpriteRenderer.flipX = true;
 				}
 				else if (horizontalInput < 0)
-				{
-					mySpriteRenderer.flipX = false;
-				}
+			    {
+			        mySpriteRenderer.flipX = false;
+			    }
 
-				//code for checking jump input
-				if (Input.GetButtonDown("Jump") && !isAirborne)
-				{
-					hasPressedJump = true;
-					isAirborne = true;
-				}
-				else if (Input.GetButtonUp("Jump"))
-				{
-					hasPressedJump = false;
-				}
-
-				if (myState == PlayerState.Invincibility)
-				{
-					for (int i = initialNumberChildren; i < transform.childCount; i++)
+			    //code for checking jump input
+					if (Input.GetButtonDown("Jump") && !isAirborne)
 					{
-						Destroy(transform.GetChild(i).gameObject);
+						hasPressedJump = true;
+						isAirborne = true;
 					}
-				}
+					else if (Input.GetButtonUp("Jump"))
+					{
+						hasPressedJump = false;
+					}
+
+					if (myState == PlayerState.Invincibility)
+					{
+						for (int i = initialNumberChildren; i < transform.childCount; i++)
+						{
+							Destroy(transform.GetChild(i).gameObject);
+						}
+					}
+				
 
 				break;
+				
 			}
 		}
 	}
@@ -220,9 +222,11 @@ public class PlayerController : MonoBehaviour
 
 	private void Setup(int initialNumberChildren)
 	{
+        SetActive(true);
 		myState = PlayerState.Invincibility;
 		mySpriteRenderer.color = invincibilityColor;
-		GameManager.Instance.Player = this;
+	    myAnimator.SetBool("Death", false);
+        GameManager.Instance.Player = this;
 		this.tag = "Player";
 		this.gameObject.layer = layerPlayer;
 		this.initialNumberChildren = initialNumberChildren;
@@ -251,7 +255,8 @@ public class PlayerController : MonoBehaviour
 			PlaySound(deathSounds[Random.Range(0, deathSounds.Length)]);
 			myState = PlayerState.Dying;
 			mySpriteRenderer.color = deathColor;
-			yield return new WaitForSeconds(timeBeforeRespawn);
+		    myAnimator.SetBool("Death", true);
+            yield return new WaitForSeconds(timeBeforeRespawn);
 
 			GameManager.Instance.DeathsPlayerCount++;
 			UIManager.Instance.UpdateUI();
@@ -263,8 +268,7 @@ public class PlayerController : MonoBehaviour
 			newPlayer.Setup(initialNumberChildren);
 			mySpriteRenderer.color = inactiveColor;
 			yield return new WaitForSeconds(timeInvincibility);
-
-			newPlayer.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+            newPlayer.GetComponentInChildren<SpriteRenderer>().color = Color.white;
 			newPlayer.myState = PlayerState.Idle;
 		}
 	}

@@ -791,8 +791,8 @@ GameObject:
   - component: {fileID: 1783916029011087565}
   - component: {fileID: 2630256712873156073}
   - component: {fileID: 8801687555094180443}
-  - component: {fileID: 1672629515}
-  - component: {fileID: 8124907589184465542}
+  - component: {fileID: 1685256458519832674}
+  - component: {fileID: 199767921240556874}
   m_Layer: 0
   m_Name: Horse
   m_TagString: Untagged
@@ -867,7 +867,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!82 &1672629515
+--- !u!82 &1685256458519832674
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -964,7 +964,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &8124907589184465542
+--- !u!82 &199767921240556874
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -976,7 +976,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 243385824995959396, guid: 47cc214e460ca15488b9caea8e56a406,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

@@ -113,6 +113,7 @@ MonoBehaviour:
     type: 3}
   horsePrefab: {fileID: 8801687555094180442, guid: ed7792d3e00c59f479a32581cd2afee3,
     type: 3}
+  waterGameObject: {fileID: 0}
   spawnerArrow: {fileID: 5260179165741695391}
   spawnerElephant: {fileID: 5260179166135999415}
   spawnerHorse: {fileID: 5260179165646934780}
